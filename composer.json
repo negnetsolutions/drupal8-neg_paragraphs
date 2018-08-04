@@ -2,7 +2,7 @@
   "name": "negnet/neg_paragraphs",
   "type": "drupal-module",
   "require": {
-    "negnet/neg_utilities"
+    "negnet/neg_utilities": "master"
   },
   "repositories": [
     {
