@@ -2,7 +2,7 @@
 
 namespace Drupal\neg_paragraphs;
 
-use Drupal\negnet_utility\NegnetUtilities;
+use Drupal\negnet_utility\FieldUtilities;
 use Drupal\neg_paragraphs\videos\videoEmbed;
 
 class paragraphs {
@@ -13,9 +13,9 @@ class paragraphs {
     $variables['#attached']['library'][] = 'negnet_utility/grid';
 
     if(isset($variables['elements']['field_columns'])){
-      $variables['columns'] = NegnetUtilities::elementChildren($variables['elements']['field_columns']);
+      $variables['columns'] = FieldUtilities::elementChildren($variables['elements']['field_columns']);
       $variables['col_count'] = count($variables['columns']);
-      $variables['grid_type'] = NegnetUtilities::numberToName($variables['col_count']);
+      $variables['grid_type'] = FieldUtilities::numberToName($variables['col_count']);
     }
   }
 
@@ -30,21 +30,21 @@ class paragraphs {
 
   public function process_image(&$variables) {
     if(isset($variables['elements']['#paragraph']->field_image)){
-      $variables['image'] = NegnetUtilities::elementChildren($variables['elements']['field_image']);
+      $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
       foreach($variables['image'] as &$image) {
         $this->setupImage($image);
       }
     }
     if(isset($variables['elements']['field_caption'])){
-      $variables['captions'] = NegnetUtilities::elementChildren($variables['elements']['field_caption']);
+      $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
     }
   }
 
   public function process_text_box(&$variables) {
     if(isset($variables['elements']['field_body'])){
-      $variables['bodies'] = NegnetUtilities::elementChildren($variables['elements']['field_body']);
+      $variables['bodies'] = FieldUtilities::elementChildren($variables['elements']['field_body']);
       $variables['body_count'] = count($variables['bodies']);
-      $variables['type'] = NegnetUtilities::numberToName($variables['body_count']);
+      $variables['type'] = FieldUtilities::numberToName($variables['body_count']);
     }
   }
 
@@ -52,25 +52,25 @@ class paragraphs {
 
     $options = [];
     if(isset($variables['elements']['field_video_options'])){
-      $options = NegnetUtilities::fieldChildren($variables['elements']['#paragraph']->field_video_options);
+      $options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_video_options);
     }
 
     if(isset($variables['elements']['field_video_url'])){
-      $urlObject = NegnetUtilities::elementChildren($variables['elements']['field_video_url']);
+      $urlObject = FieldUtilities::elementChildren($variables['elements']['field_video_url']);
       $url = $urlObject[0]['#url']->toString();
       $video = new videoEmbed($url, $options, $variables);
       $video->embed();
     }
 
     if(isset($variables['elements']['field_image'])){
-      $variables['image'] = NegnetUtilities::elementChildren($variables['elements']['field_image']);
+      $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
       foreach($variables['image'] as &$image) {
         $this->setupImage($image);
       }
     }
 
     if(isset($variables['elements']['field_caption'])){
-      $variables['captions'] = NegnetUtilities::elementChildren($variables['elements']['field_caption']);
+      $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
     }
 
   }
