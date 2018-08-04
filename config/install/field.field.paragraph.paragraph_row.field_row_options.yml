@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_row_options
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - options
+id: paragraph.paragraph_row.field_row_options
+field_name: field_row_options
+entity_type: paragraph
+bundle: paragraph_row
+label: Options
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

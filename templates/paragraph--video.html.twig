@@ -1,0 +1,22 @@
+<figure class="paragraph paragraph-video {{type}}">
+  {% if image %}
+  <figure class='poster visible'>
+    {{ image }}
+
+    {% if captions|length > 0 %}
+    {% for caption in captions %}
+      <figcaption>
+        <div class='textbox'>
+          {{ caption }}
+        </div>
+      </figcaption>
+    {% endfor %}
+    {% endif %}
+  </figure>
+  {% endif %}
+
+  {% if video %}
+    <iframe src="{{ video}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  {% endif %}
+
+</figure>

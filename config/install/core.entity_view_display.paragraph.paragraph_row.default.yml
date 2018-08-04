@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraph_row.field_columns
+    - field.field.paragraph.paragraph_row.field_horizontal_alignment
+    - field.field.paragraph.paragraph_row.field_row_options
+    - field.field.paragraph.paragraph_row.field_vertical_alignment
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.paragraph_row.default
+targetEntityType: paragraph
+bundle: paragraph_row
+mode: default
+content:
+  field_columns:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_horizontal_alignment:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_row_options:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_vertical_alignment:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

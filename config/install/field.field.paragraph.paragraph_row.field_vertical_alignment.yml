@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_vertical_alignment
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - options
+id: paragraph.paragraph_row.field_vertical_alignment
+field_name: field_vertical_alignment
+entity_type: paragraph
+bundle: paragraph_row
+label: 'Vertical Alignment'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: middle
+default_value_callback: ''
+settings: {  }
+field_type: list_string

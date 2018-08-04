@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: paragraph_row
+label: Row
+icon_uuid: null
+description: 'Use this paragraph type to add a new row to a page''s layout.'
+behavior_plugins: {  }

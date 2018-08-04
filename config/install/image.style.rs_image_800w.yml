@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_800w
+label: rs_image_800w
+effects:
+  a6eb6245-3643-42c6-9915-90becdda5e71:
+    uuid: a6eb6245-3643-42c6-9915-90becdda5e71
+    id: image_scale
+    weight: 1
+    data:
+      width: 800
+      height: null
+      upscale: false

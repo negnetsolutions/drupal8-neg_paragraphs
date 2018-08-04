@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_600w
+label: rs_image_600w
+effects:
+  c2d2c2e0-fc08-4345-a1de-6a0b13773c9e:
+    uuid: c2d2c2e0-fc08-4345-a1de-6a0b13773c9e
+    id: image_scale
+    weight: 1
+    data:
+      width: 600
+      height: null
+      upscale: false

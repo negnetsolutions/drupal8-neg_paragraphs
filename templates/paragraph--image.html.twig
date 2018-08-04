@@ -1,0 +1,12 @@
+<figure class="paragraph paragraph-image responsive-image rs_image">
+  {{ image }}
+  {% if captions|length > 0 %}
+  {% for caption in captions %}
+    <figcaption>
+      <div class='textbox'>
+        {{ caption }}
+      </div>
+    </figcaption>
+  {% endfor %}
+  {% endif %}
+</figure>

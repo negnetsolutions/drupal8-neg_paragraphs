@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_220w
+label: rs_image_220w
+effects:
+  dbda6046-0a36-461d-a40d-888e9c26a677:
+    uuid: dbda6046-0a36-461d-a40d-888e9c26a677
+    id: image_scale
+    weight: 1
+    data:
+      width: 220
+      height: null
+      upscale: false

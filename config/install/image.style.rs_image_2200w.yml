@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_2200w
+label: rs_image_2200w
+effects:
+  d07eccd7-00b8-4692-9254-09d3f3bc2e37:
+    uuid: d07eccd7-00b8-4692-9254-09d3f3bc2e37
+    id: image_scale
+    weight: 1
+    data:
+      width: 2200
+      height: null
+      upscale: false

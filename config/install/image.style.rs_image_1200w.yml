@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_1200w
+label: rs_image_1200w
+effects:
+  9c12f9f2-2e09-4ab5-9f7f-6a7e6b5118ba:
+    uuid: 9c12f9f2-2e09-4ab5-9f7f-6a7e6b5118ba
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: null
+      upscale: false

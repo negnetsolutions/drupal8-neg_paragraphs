@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_1600w
+label: rs_image_1600w
+effects:
+  7ede2b7f-23e0-4812-8606-ba3db79f124d:
+    uuid: 7ede2b7f-23e0-4812-8606-ba3db79f124d
+    id: image_scale
+    weight: 1
+    data:
+      width: 1600
+      height: null
+      upscale: false

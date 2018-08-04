@@ -1,0 +1,6 @@
+neg_paragraphs.rs_images.main:
+  label: Main
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x

@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default_fields
+label: 'Default Fields'
+description: ''
+attributes: {  }
+matchers:
+  37fdea37-0414-41c6-9ba8-17dbdaa1597d:
+    uuid: 37fdea37-0414-41c6-9ba8-17dbdaa1597d
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: '[node:title] - [node:url:path] ([node:nid])'
+      bundles: {  }
+      group_by_bundle: true
+      include_unpublished: true

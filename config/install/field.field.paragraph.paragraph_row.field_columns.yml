@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_columns
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - entity_reference_revisions
+id: paragraph.paragraph_row.field_columns
+field_name: field_columns
+entity_type: paragraph
+bundle: paragraph_row
+label: Columns
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      paragraph_row: paragraph_row
+    target_bundles_drag_drop:
+      image:
+        weight: 4
+        enabled: false
+      paragraph_row:
+        enabled: true
+        weight: 5
+      text_box:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

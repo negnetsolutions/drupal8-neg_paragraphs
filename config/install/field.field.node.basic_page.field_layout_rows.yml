@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_layout_rows
+    - node.type.basic_page
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - entity_reference_revisions
+id: node.basic_page.field_layout_rows
+field_name: field_layout_rows
+entity_type: node
+bundle: basic_page
+label: Rows
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      paragraph_row: paragraph_row
+    target_bundles_drag_drop:
+      image:
+        weight: 4
+        enabled: false
+      paragraph_row:
+        enabled: true
+        weight: 5
+      text_box:
+        weight: 6
+        enabled: false
+      video:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

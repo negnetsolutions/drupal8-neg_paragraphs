@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_image_1800w
+label: rs_image_1800w
+effects:
+  65077a96-356b-47b0-b900-3138bfef2a05:
+    uuid: 65077a96-356b-47b0-b900-3138bfef2a05
+    id: image_scale
+    weight: 1
+    data:
+      width: 1800
+      height: null
+      upscale: false

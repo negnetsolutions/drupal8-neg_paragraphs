@@ -1,0 +1,19 @@
+vimeo:
+  version: 1.0
+  js:
+    js/fitvids_paragraphs.js: {}
+    js/vimeo_player.js: {}
+    js/vimeo_videos.js: {}
+  css:
+    theme:
+      css/video.css: {}
+youtube:
+  version: 1.0
+  js:
+    https://www.youtube.com/iframe_api: {type: external, minified: false}
+    js/youtube_videos.js: {}
+reset:
+  version: 1.0
+  css:
+    theme:
+      css/reset.css: {}

@@ -1,0 +1,85 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraph_row.field_columns
+    - field.field.paragraph.paragraph_row.field_horizontal_alignment
+    - field.field.paragraph.paragraph_row.field_row_options
+    - field.field.paragraph.paragraph_row.field_vertical_alignment
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_alignment:
+      children:
+        - field_horizontal_alignment
+        - field_vertical_alignment
+      parent_name: group_row_advanced
+      weight: 22
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Alignment
+    group_row_advanced:
+      children:
+        - field_row_options
+        - group_alignment
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Advanced
+id: paragraph.paragraph_row.default
+targetEntityType: paragraph
+bundle: paragraph_row
+mode: default
+content:
+  field_columns:
+    type: paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: preview
+      autocollapse: none
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
+    third_party_settings: {  }
+    region: content
+  field_horizontal_alignment:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_row_options:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_vertical_alignment:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

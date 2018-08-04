@@ -1,0 +1,26 @@
+name: 'Neg Paragraphs'
+type: module
+description: 'Paragraph Overrides for Negnet Solutions implementation of Paragraphs'
+core: 8.x
+dependencies:
+  - admin_toolbar
+  - ckeditor
+  - editor
+  - entity_reference_revisions
+  - field
+  - field_group
+  - file
+  - filter
+  - image
+  - link
+  - linkit
+  - menu_ui
+  - neg_paragraphs
+  - negnet_utility
+  - node
+  - options
+  - paragraphs
+  - path
+  - responsive_image
+  - text
+  - user
