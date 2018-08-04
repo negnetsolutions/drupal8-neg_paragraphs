@@ -1,5 +1,13 @@
 {
   "name": "negnet/neg_paragraphs",
   "type": "drupal-module",
-  "require": {}
+  "require": {
+    "negnet/neg_utilities"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://bitbucket.org/negnetsolutions/neg_utilities"
+    }
+  ]
 }
