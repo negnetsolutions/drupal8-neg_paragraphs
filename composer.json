@@ -3,11 +3,5 @@
   "type": "drupal-module",
   "require": {
     "negnet/neg_utilities": "master"
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://bitbucket.org/negnetsolutions/neg_utilities"
-    }
-  ]
+  }
 }
