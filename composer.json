@@ -1,6 +1,8 @@
 {
   "name": "negnet/neg_paragraphs",
+  "description": "Paragraphs Module for Negnet Solutions Drupal Websites",
   "type": "drupal-module",
+  "license": "GPL-3.0+",
   "require": {
     "negnet/neg_utilities": "master"
   }
