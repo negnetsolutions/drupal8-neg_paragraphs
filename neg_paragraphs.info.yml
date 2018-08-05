@@ -24,4 +24,5 @@ dependencies:
   - responsive_image
   - text
   - user
+  - webform
   - pathauto
