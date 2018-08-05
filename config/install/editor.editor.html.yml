@@ -17,6 +17,9 @@ settings:
             - Styles
             - Format
             - Bold
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
             - Italic
         -
           name: Links
@@ -33,7 +36,6 @@ settings:
           name: Media
           items:
             - Blockquote
-            - DrupalImage
         -
           name: Tools
           items:

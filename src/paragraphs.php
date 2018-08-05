@@ -28,6 +28,12 @@ class paragraphs {
 
   }
 
+  public function process_webform(&$variables) {
+    if(isset($variables['elements']['field_webform'])){
+      $variables['webform'] = FieldUtilities::elementChildren($variables['elements']['field_webform']);
+    }
+  }
+
   public function process_image(&$variables) {
     if(isset($variables['elements']['#paragraph']->field_image)){
       $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);

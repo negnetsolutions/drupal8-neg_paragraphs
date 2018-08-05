@@ -32,6 +32,10 @@ function neg_paragraphs_theme($existing, $type, $theme, $path){
       'template' => 'paragraph--textbox' ,
       'base hook' => 'paragraph',
     ),
+    'paragraph__webform' => array (
+      'template' => 'paragraph--webform' ,
+      'base hook' => 'paragraph',
+    ),
 
   );
 }

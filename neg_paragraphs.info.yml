@@ -21,8 +21,10 @@ dependencies:
   - options
   - paragraphs
   - path
+  - pathauto
   - responsive_image
   - text
   - user
   - webform
-  - pathauto
+  - webform_ui
+  - simple_sitemap

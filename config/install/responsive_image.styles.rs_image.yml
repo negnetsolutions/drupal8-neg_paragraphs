@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.rs_image_1200w
+    - image.style.rs_image_1600w
+    - image.style.rs_image_1800w
+    - image.style.rs_image_2200w
+    - image.style.rs_image_220w
+    - image.style.rs_image_600w
+    - image.style.rs_image_800w
+  module:
+    - neg_paragraphs
+id: rs_image
+label: rs_image
+image_style_mappings:
+  -
+    breakpoint_id: neg_paragraphs.rs_images.main
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - rs_image_1200w
+        - rs_image_1600w
+        - rs_image_1800w
+        - rs_image_2200w
+        - rs_image_220w
+        - rs_image_600w
+        - rs_image_800w
+breakpoint_group: neg_paragraphs
+fallback_image_style: rs_image_220w
