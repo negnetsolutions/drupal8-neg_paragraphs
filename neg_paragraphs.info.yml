@@ -23,8 +23,8 @@ dependencies:
   - path
   - pathauto
   - responsive_image
+  - simple_sitemap
   - text
   - user
   - webform
   - webform_ui
-  - simple_sitemap

@@ -4,22 +4,28 @@ dependencies:
   module:
     - options
     - paragraphs
-id: paragraph.field_row_options
-field_name: field_row_options
+id: paragraph.field_size
+field_name: field_size
 entity_type: paragraph
 type: list_string
 settings:
   allowed_values:
     -
-      value: padded
-      label: 'Add Space between Columns'
+      value: full
+      label: 100%
     -
-      value: slider
-      label: 'Render as a Slider/Fader'
+      value: seventyfive
+      label: 75%
+    -
+      value: half
+      label: 50%
+    -
+      value: twentyfive
+      label: 25%
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

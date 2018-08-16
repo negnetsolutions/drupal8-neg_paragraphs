@@ -4,9 +4,11 @@ dependencies:
   config:
     - field.field.paragraph.image.field_caption
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_size
     - paragraphs.paragraphs_type.image
   module:
     - image
+    - options
     - text
 id: paragraph.image.default
 targetEntityType: paragraph
@@ -29,4 +31,11 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_size:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
 hidden: {  }

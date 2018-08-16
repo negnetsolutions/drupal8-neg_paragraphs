@@ -36,19 +36,20 @@ settings:
           name: Media
           items:
             - Blockquote
+            - DrupalImage
         -
           name: Tools
           items:
             - Source
   plugins:
     stylescombo:
-      styles: ''
+      styles: "image.half|1/2 Width Image\r\nimage.seventyfive|3/4 Width Image"
     language:
       language_list: un
     linkit:
       linkit_profile: default_fields
 image_upload:
-  status: false
+  status: true
   scheme: public
   directory: inline-images
   max_size: ''

@@ -4,11 +4,39 @@ dependencies:
   config:
     - field.field.paragraph.image.field_caption
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_size
     - image.style.thumbnail
     - paragraphs.paragraphs_type.image
   module:
+    - field_group
     - image
     - text
+third_party_settings:
+  field_group:
+    group_caption:
+      children:
+        - field_caption
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Caption
+    group_image_sizing:
+      children:
+        - field_size
+      parent_name: ''
+      weight: 20
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: 'Image Sizing'
 id: paragraph.image.default
 targetEntityType: paragraph
 bundle: image
@@ -29,6 +57,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_size:
+    weight: 21
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
 hidden:
   created: true

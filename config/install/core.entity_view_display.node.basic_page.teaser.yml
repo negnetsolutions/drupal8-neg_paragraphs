@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.basic_page.field_layout_rows
     - node.type.basic_page
   module:
     - user
@@ -14,4 +15,5 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_layout_rows: true

@@ -19,7 +19,7 @@ filters:
     status: false
     weight: -10
     settings:
-      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <h1> <pre> <a href hreflang !href accesskey id rel target title> <img src alt data-entity-type data-entity-uuid>'
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <p> <h1> <pre> <a href hreflang !href accesskey id rel target title> <image class="half seventyfive"> <img src alt data-entity-type data-entity-uuid class="half seventyfive">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_responsive_images:
@@ -29,3 +29,9 @@ filters:
     weight: 0
     settings:
       responsive_image_style: rs_image
+  filter_negnet:
+    id: filter_negnet
+    provider: negnet_utility
+    status: true
+    weight: 0
+    settings: {  }
