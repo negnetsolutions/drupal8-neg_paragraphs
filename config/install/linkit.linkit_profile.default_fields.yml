@@ -6,7 +6,6 @@ dependencies:
 id: default_fields
 label: 'Default Fields'
 description: ''
-attributes: {  }
 matchers:
   37fdea37-0414-41c6-9ba8-17dbdaa1597d:
     uuid: 37fdea37-0414-41c6-9ba8-17dbdaa1597d
@@ -17,3 +16,5 @@ matchers:
       bundles: {  }
       group_by_bundle: true
       include_unpublished: true
+      metadata: ''
+      substitution_type: canonical

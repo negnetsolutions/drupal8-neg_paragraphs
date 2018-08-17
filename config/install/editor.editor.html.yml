@@ -26,7 +26,6 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
-            - Linkit
         -
           name: Lists
           items:
@@ -44,10 +43,11 @@ settings:
   plugins:
     stylescombo:
       styles: "image.half|1/2 Width Image\r\nimage.seventyfive|3/4 Width Image"
+    drupallink:
+      linkit_enabled: true
+      linkit_profile: default_fields
     language:
       language_list: un
-    linkit:
-      linkit_profile: default_fields
 image_upload:
   status: true
   scheme: public

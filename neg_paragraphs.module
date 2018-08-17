@@ -2,19 +2,21 @@
 
 use Drupal\neg_paragraphs\paragraphs;
 
-function neg_paragraphs_preprocess_paragraph(&$variables){
+function neg_paragraphs_preprocess_paragraph(&$variables)
+{
 
-  $p = new paragraphs();
+    $p = new paragraphs();
 
-  $method = 'process_'.$variables['paragraph']->getType();
-  if(method_exists($p,$method)) {
-    $p->$method($variables);
-  }
+    $method = 'process_'.$variables['paragraph']->getType();
+    if (method_exists($p, $method)) {
+        $p->$method($variables);
+    }
 
 }
 
-function neg_paragraphs_theme($existing, $type, $theme, $path){
-  return array (
+function neg_paragraphs_theme($existing, $type, $theme, $path)
+{
+    return array (
 
     'paragraph__paragraph_row' => array (
       'template' => 'paragraph--row' ,
@@ -37,5 +39,5 @@ function neg_paragraphs_theme($existing, $type, $theme, $path){
       'base hook' => 'paragraph',
     ),
 
-  );
+    );
 }
