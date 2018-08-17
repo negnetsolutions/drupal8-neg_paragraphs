@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  canonical_url: '[node:url]'
+  description: '[node:paragraph_text:single:summary:single-line]'
+  og_image: '[node:paragraph_images:single]'
+  og_title: '[node:title]'

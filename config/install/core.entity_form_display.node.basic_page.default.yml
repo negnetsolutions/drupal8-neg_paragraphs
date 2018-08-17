@@ -3,8 +3,10 @@ status: true
 dependencies:
   config:
     - field.field.node.basic_page.field_layout_rows
+    - field.field.node.basic_page.field_meta_tags
     - node.type.basic_page
   module:
+    - metatag
     - paragraphs
     - path
 id: node.basic_page.default
@@ -35,6 +37,12 @@ content:
         collapse_edit_all: collapse_edit_all
         add_above: '0'
     third_party_settings: {  }
+    region: content
+  field_meta_tags:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   path:
     type: path
