@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.paragraph_row.field_columns
     - field.field.paragraph.paragraph_row.field_horizontal_alignment
+    - field.field.paragraph.paragraph_row.field_margins
     - field.field.paragraph.paragraph_row.field_row_options
     - field.field.paragraph.paragraph_row.field_vertical_alignment
     - paragraphs.paragraphs_type.paragraph_row
@@ -26,6 +27,13 @@ content:
     region: content
   field_horizontal_alignment:
     weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_margins:
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }

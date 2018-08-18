@@ -4,6 +4,7 @@ dependencies:
   config:
     - field.field.paragraph.paragraph_row.field_columns
     - field.field.paragraph.paragraph_row.field_horizontal_alignment
+    - field.field.paragraph.paragraph_row.field_margins
     - field.field.paragraph.paragraph_row.field_row_options
     - field.field.paragraph.paragraph_row.field_vertical_alignment
     - paragraphs.paragraphs_type.paragraph_row
@@ -14,6 +15,7 @@ third_party_settings:
   field_group:
     group_alignment:
       children:
+        - field_margins
         - field_horizontal_alignment
         - field_vertical_alignment
       parent_name: group_row_advanced
@@ -62,7 +64,13 @@ content:
     third_party_settings: {  }
     region: content
   field_horizontal_alignment:
-    weight: 2
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_margins:
+    weight: 23
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -74,7 +82,7 @@ content:
     type: options_buttons
     region: content
   field_vertical_alignment:
-    weight: 3
+    weight: 25
     settings: {  }
     third_party_settings: {  }
     type: options_buttons

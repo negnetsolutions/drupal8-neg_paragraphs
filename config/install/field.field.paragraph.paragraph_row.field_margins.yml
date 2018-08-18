@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_margins
+    - paragraphs.paragraphs_type.paragraph_row
+  module:
+    - options
+id: paragraph.paragraph_row.field_margins
+field_name: field_margins
+entity_type: paragraph
+bundle: paragraph_row
+label: Margins
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: bottom
+default_value_callback: ''
+settings: {  }
+field_type: list_string

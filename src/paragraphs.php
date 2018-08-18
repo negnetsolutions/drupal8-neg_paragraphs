@@ -20,6 +20,13 @@ class paragraphs
             $variables['grid_type'] = FieldUtilities::numberToName($variables['col_count']);
         }
 
+        if (isset($variables['elements']['field_margins'])) {
+            $variables['margins'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_margins);
+            foreach ($variables['margins'] as &$margin) {
+                $margin = 'margin_'.$margin;
+            }
+        }
+
         if (isset($variables['elements']['field_horizontal_alignment'])) {
             $variables['horizontal_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_horizontal_alignment)[0];
         }
