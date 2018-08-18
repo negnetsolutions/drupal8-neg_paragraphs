@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_square_1200w
+label: rs_square_1200w
+effects:
+  316f33f1-dde4-4f43-8a98-ba1ad730957c:
+    uuid: 316f33f1-dde4-4f43-8a98-ba1ad730957c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 1200

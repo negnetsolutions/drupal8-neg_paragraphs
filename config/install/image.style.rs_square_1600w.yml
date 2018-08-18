@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_square_1600w
+label: rs_square_1600w
+effects:
+  4d21a993-73b4-4e4a-8cc3-9f53c5ebc2c9:
+    uuid: 4d21a993-73b4-4e4a-8cc3-9f53c5ebc2c9
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 1600

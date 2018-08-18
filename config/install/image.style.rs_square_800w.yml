@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_square_800w
+label: rs_square_800w
+effects:
+  dc76dd4d-d652-49ba-921a-8a069cab88bf:
+    uuid: dc76dd4d-d652-49ba-921a-8a069cab88bf
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 800

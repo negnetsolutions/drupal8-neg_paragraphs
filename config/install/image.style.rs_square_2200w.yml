@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_square_2200w
+label: rs_square_2200w
+effects:
+  bfa3041e-da1b-4a5e-bad0-d07250ec9f71:
+    uuid: bfa3041e-da1b-4a5e-bad0-d07250ec9f71
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2200
+      height: 2200

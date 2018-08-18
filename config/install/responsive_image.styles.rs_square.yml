@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.rs_square_1200w
+    - image.style.rs_square_1600w
+    - image.style.rs_square_1800w
+    - image.style.rs_square_2200w
+    - image.style.rs_square_220w
+    - image.style.rs_square_600w
+    - image.style.rs_square_800w
+  module:
+    - neg_paragraphs
+id: rs_square
+label: rs_square
+image_style_mappings:
+  -
+    breakpoint_id: neg_paragraphs.rs_images.main
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - rs_square_1200w
+        - rs_square_1600w
+        - rs_square_1800w
+        - rs_square_2200w
+        - rs_square_220w
+        - rs_square_600w
+        - rs_square_800w
+breakpoint_group: neg_paragraphs
+fallback_image_style: rs_square_220w

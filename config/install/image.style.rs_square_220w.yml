@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_square_220w
+label: rs_square_220w
+effects:
+  5ed1a89b-6592-4999-aee7-25df4ab98301:
+    uuid: 5ed1a89b-6592-4999-aee7-25df4ab98301
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 220
+      height: 220

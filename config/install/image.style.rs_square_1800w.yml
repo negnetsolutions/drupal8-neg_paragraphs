@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: rs_square_1800w
+label: rs_square_1800w
+effects:
+  7b4437aa-f1e2-4686-abc2-f6af0ebbbda5:
+    uuid: 7b4437aa-f1e2-4686-abc2-f6af0ebbbda5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1800
+      height: 1800
