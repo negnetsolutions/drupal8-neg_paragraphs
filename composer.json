@@ -6,6 +6,7 @@
   "require": {
     "negnet/neg_utilities": "master",
     "drupal/admin_toolbar": "^1.24",
+    "drupal/adminimal_admin_toolbar": "^1.8",
     "drupal/entity_reference_revisions": "^1.5",
     "drupal/field_group": "^1.0",
     "drupal/linkit": "^5.0",
