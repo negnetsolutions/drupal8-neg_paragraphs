@@ -20,22 +20,22 @@ class paragraphs
             $variables['grid_type'] = FieldUtilities::numberToName($variables['col_count']);
         }
 
-        if (isset($variables['elements']['field_margins'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_margins')) {
             $variables['margins'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_margins);
             foreach ($variables['margins'] as &$margin) {
                 $margin = 'margin_'.$margin;
             }
         }
 
-        if (isset($variables['elements']['field_horizontal_alignment'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_horizontal_alignment')) {
             $variables['horizontal_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_horizontal_alignment)[0];
         }
 
-        if (isset($variables['elements']['field_vertical_alignment'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_vertical_alignment')) {
             $variables['vertical_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_vertical_alignment)[0];
         }
 
-        if (isset($variables['elements']['field_row_options'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_row_options')) {
             $options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_row_options);
             foreach ($options as $option) {
               switch ($option) {
@@ -80,14 +80,14 @@ class paragraphs
             $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
         }
 
-        if (isset($variables['elements']['field_size'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_size')) {
             $variables['sizing'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_size)[0];
         }
     }
 
     public function process_text_box(&$variables) 
     {
-        if (isset($variables['elements']['field_body'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements'], 'field_body')) {
             $variables['bodies'] = FieldUtilities::elementChildren($variables['elements']['field_body']);
             $variables['body_count'] = count($variables['bodies']);
             $variables['type'] = FieldUtilities::numberToName($variables['body_count']);
@@ -98,7 +98,7 @@ class paragraphs
     {
 
         $options = [];
-        if (isset($variables['elements']['field_video_options'])) {
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_video_options')) {
             $options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_video_options);
         }
 
