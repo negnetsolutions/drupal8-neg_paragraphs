@@ -1,11 +1,19 @@
-<div class="paragraph paragraph-textbox">
+<section class="col paragraph paragraph-textbox">
+  {% if bodies.length > 1 %}
   <div class='wrap grid {{ type }}'>
+  {% endif %}
     {% for body in bodies %}
+      {% if bodies.length > 1 %}
       <figure class='col text'>
+      {% endif %}
         <div class='textbox'>
           {{ body }}
         </div>
+      {% if bodies.length > 1 %}
       </figure>
+      {% endif %}
     {% endfor %}
+  {% if bodies.length > 1 %}
   </div>
-</div>
+  {% endif %}
+</section>
