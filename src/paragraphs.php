@@ -49,9 +49,15 @@ class paragraphs
               }
             }
         }
+
+        $GLOBALS['paragraph_col_count'] = 0;
+        if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_columns')) {
+          $cols = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_columns);
+          $GLOBALS['paragraph_col_count'] = count($cols);
+        }
     }
 
-    public function setupImage(&$image) 
+    public function setupImage(&$image)
     {
 
         if ($image['#theme'] !== 'responsive_image_formatter') {
