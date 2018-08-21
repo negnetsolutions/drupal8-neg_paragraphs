@@ -42,7 +42,7 @@ settings:
             - Source
   plugins:
     stylescombo:
-      styles: "image.half|1/2 Width Image\r\nimage.seventyfive|3/4 Width Image"
+      styles: "div.half|1/2 Width\r\ndiv.seventyfive|3/4 Width"
     drupallink:
       linkit_enabled: true
       linkit_profile: default_fields
