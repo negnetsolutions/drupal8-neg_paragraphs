@@ -29,5 +29,3 @@ dependencies:
   - simple_sitemap
   - text
   - user
-  - webform
-  - webform_ui
