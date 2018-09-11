@@ -18,6 +18,12 @@ class ParagraphProcessor {
     $variables['#attached']['library'][] = 'neg_paragraphs/reset';
     $variables['#attached']['library'][] = 'negnet_utility/grid';
 
+    if (!isset($GLOBALS['paragraph_row_count'])) {
+      $GLOBALS['paragraph_row_count'] = 0;
+    }
+
+    $GLOBALS['paragraph_row_count']++;
+
     if (isset($variables['elements']['field_columns'])) {
       $variables['columns'] = FieldUtilities::elementChildren($variables['elements']['field_columns']);
       $variables['col_count'] = count($variables['columns']);
@@ -48,6 +54,7 @@ class ParagraphProcessor {
             break;
 
           case 'fullscreen':
+            $this->setIsFullScreen();
             break;
 
           case 'slider':
@@ -60,6 +67,16 @@ class ParagraphProcessor {
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_columns')) {
       $cols = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_columns);
       $GLOBALS['paragraph_col_count'] = count($cols);
+    }
+  }
+
+  /**
+   * Inform's the theme that the row should be set to full screen mode.
+   */
+  public function setIsFullScreen() {
+    // Only set fullscreen flag if this paragraph row is the first row.
+    if (isset($GLOBALS['paragraph_row_count']) && $GLOBALS['paragraph_row_count'] == 1) {
+      $GLOBALS['neg_fullscreen'] = TRUE;
     }
   }
 

@@ -9,6 +9,15 @@ use Drupal\neg_paragraphs\ParagraphProcessor;
 use Drupal\negnet_utility\FieldUtilities;
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function neg_paragraphs_preprocess_html(&$variables) {
+  if (isset($GLOBALS['neg_fullscreen'])) {
+    $variables['attributes']['class'][] = 'fullscreen';
+  }
+}
+
+/**
  * Implements hook_preprocess_paragraph().
  */
 function neg_paragraphs_preprocess_paragraph(&$variables) {
