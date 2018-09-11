@@ -31,6 +31,7 @@ function neg_paragraphs_preprocess_paragraph(&$variables) {
     $p->$method($variables);
   }
 
+  \Drupal::moduleHandler()->alter('preprocess_neg_paragraph', $variables);
 }
 
 /**
