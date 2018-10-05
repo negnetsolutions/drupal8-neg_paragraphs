@@ -64,9 +64,13 @@ class ParagraphProcessor {
             break;
 
           case 'slider':
-            $variables['#attached']['library'][] = 'neg_paragraphs/tinyslide';
-            $variables['row_layout'] = 'layout_slider';
-            $GLOBALS['paragraph_col_count'] = 1;
+            if ($GLOBALS['paragraph_col_count'] > 1) {
+              // Enable the slider if we have more than 1 item.
+              $variables['#attached']['library'][] = 'neg_paragraphs/tinyslide';
+              $variables['row_layout'] = 'layout_slider';
+              $GLOBALS['paragraph_col_count'] = 1;
+            }
+
             break;
         }
       }
