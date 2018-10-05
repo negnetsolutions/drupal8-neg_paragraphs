@@ -15,7 +15,7 @@ settings:
       label: 'Add Space between Columns'
     -
       value: slider
-      label: 'Render as a Slider/Fader'
+      label: 'Render as a Slide Show'
   allowed_values_function: ''
 module: options
 locked: false
