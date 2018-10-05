@@ -1,0 +1,55 @@
+@keyframes tinyFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tinyFadeOutHide{
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.paragraph-row.layout_slider {
+  overflow: hidden;
+  & > .grid {
+    height: 0;
+    // Sets to a 4x3 aspect ratio by default.
+    padding-top: 75%;
+    .col {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 7;
+      display: none;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      &.active, &.previous {
+        display: block;
+      }
+      &.active {
+        z-index: 8;
+        animation-duration: 2.9s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: tinyFadeIn;
+      }
+      &.previous {
+        animation-duration: 2.9s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-name: tinyFadeOutHide;
+      }
+    }
+  }
+}

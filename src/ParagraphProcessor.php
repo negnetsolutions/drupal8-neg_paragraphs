@@ -58,6 +58,8 @@ class ParagraphProcessor {
             break;
 
           case 'slider':
+            $variables['#attached']['library'][] = 'neg_paragraphs/tinyslide';
+            $variables['row_layout'] = 'layout_slider';
             break;
         }
       }

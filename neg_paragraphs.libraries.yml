@@ -17,3 +17,13 @@ reset:
   css:
     theme:
       css/reset.css: {}
+tinyslide:
+  version: 1.0
+  css:
+    theme:
+      css/tinyslide.css: {}
+  js:
+    js/tinyslide/js/tinyslide.js: {}
+    js/tinyslide-paragraph.js: {}
+  dependencies:
+    - core/jquery
