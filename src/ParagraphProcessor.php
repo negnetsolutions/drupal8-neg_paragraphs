@@ -45,6 +45,12 @@ class ParagraphProcessor {
       $variables['vertical_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_vertical_alignment)[0];
     }
 
+    $GLOBALS['paragraph_col_count'] = 0;
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_columns')) {
+      $cols = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_columns);
+      $GLOBALS['paragraph_col_count'] = count($cols);
+    }
+
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_row_options')) {
       $options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_row_options);
       foreach ($options as $option) {
@@ -60,16 +66,12 @@ class ParagraphProcessor {
           case 'slider':
             $variables['#attached']['library'][] = 'neg_paragraphs/tinyslide';
             $variables['row_layout'] = 'layout_slider';
+            $GLOBALS['paragraph_col_count'] = 1;
             break;
         }
       }
     }
 
-    $GLOBALS['paragraph_col_count'] = 0;
-    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_columns')) {
-      $cols = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_columns);
-      $GLOBALS['paragraph_col_count'] = count($cols);
-    }
   }
 
   /**
