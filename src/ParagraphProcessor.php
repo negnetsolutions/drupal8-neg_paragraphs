@@ -33,16 +33,16 @@ class ParagraphProcessor {
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_margins')) {
       $variables['margins'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_margins);
       foreach ($variables['margins'] as &$margin) {
-        $margin = 'margin_' . $margin;
+        $margin = 'margin_' . $margin['value'];
       }
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_horizontal_alignment')) {
-      $variables['horizontal_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_horizontal_alignment)[0];
+      $variables['horizontal_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_horizontal_alignment)[0]['value'];
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_vertical_alignment')) {
-      $variables['vertical_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_vertical_alignment)[0];
+      $variables['vertical_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_vertical_alignment)[0]['value'];
     }
 
     $GLOBALS['paragraph_col_count'] = 0;
@@ -54,6 +54,7 @@ class ParagraphProcessor {
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_row_options')) {
       $options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_row_options);
       foreach ($options as $option) {
+        $option = $option['value'];
         switch ($option) {
           case 'padded':
             $variables['padded'] = 'padded';
@@ -124,7 +125,7 @@ class ParagraphProcessor {
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_size')) {
-      $variables['sizing'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_size)[0];
+      $variables['sizing'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_size)[0]['value'];
     }
   }
 
