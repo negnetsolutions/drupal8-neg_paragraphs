@@ -1,5 +1,5 @@
 <div class='paragraph-row {{ margins | join(' ') }}{% if row_layout %} {{ row_layout }}{% endif %}'>
-  <div class='grid {{ grid_type }} {{ horizontal_alignment }} {{ vertical_alignment }}{% if padded %} {{ padded }} {% endif %} {{ attributes.class }}'>
+  <div class='{{ attributes.class }}'>
     {% for col in columns %}
       {{ col }}
     {% endfor %}

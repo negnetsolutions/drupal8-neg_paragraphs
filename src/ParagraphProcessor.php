@@ -24,10 +24,13 @@ class ParagraphProcessor {
 
     $GLOBALS['paragraph_row_count']++;
 
+    $variables['attributes']['class'][] = 'grid';
+
     if (isset($variables['elements']['field_columns'])) {
       $variables['columns'] = FieldUtilities::elementChildren($variables['elements']['field_columns']);
       $variables['col_count'] = count($variables['columns']);
       $variables['grid_type'] = FieldUtilities::numberToName($variables['col_count']);
+      $variables['attributes']['class'][] = $variables['grid_type'];
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_margins')) {
@@ -39,10 +42,12 @@ class ParagraphProcessor {
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_horizontal_alignment')) {
       $variables['horizontal_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_horizontal_alignment)[0]['value'];
+      $variables['attributes']['class'][] = $variables['horizontal_alignment'];
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_vertical_alignment')) {
       $variables['vertical_alignment'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_vertical_alignment)[0]['value'];
+      $variables['attributes']['class'][] = $variables['vertical_alignment'];
     }
 
     $GLOBALS['paragraph_col_count'] = 0;
@@ -58,6 +63,7 @@ class ParagraphProcessor {
         switch ($option) {
           case 'padded':
             $variables['padded'] = 'padded';
+            $variables['attributes']['class'][] = 'padded';
             break;
 
           case 'fullscreen':
