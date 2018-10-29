@@ -19,11 +19,16 @@ reset:
       css/reset.css: {}
 tinyslide:
   version: 1.0
+  js:
+    js/tinyslide/js/tinyslide.js: {}
+  dependencies:
+    - core/jquery
+tinyslideParagraph:
+  version: 1.0
   css:
     theme:
       css/tinyslide.css: {}
   js:
-    js/tinyslide/js/tinyslide.js: {}
     js/tinyslide-paragraph.js: {}
   dependencies:
-    - core/jquery
+    - neg_paragraphs/tinyslide
