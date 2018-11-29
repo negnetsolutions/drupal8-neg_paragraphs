@@ -16,6 +16,7 @@ dependencies:
   - link
   - linkit
   - menu_ui
+  - memcache
   - metatag
   - metatag_open_graph
   - neg_paragraphs
