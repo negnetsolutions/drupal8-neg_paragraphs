@@ -4,11 +4,13 @@ dependencies:
   config:
     - field.field.paragraph.image.field_caption
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_link
     - field.field.paragraph.image.field_size
     - paragraphs.paragraphs_type.image
   module:
-    - image
+    - link
     - options
+    - image
     - text
 id: paragraph.image.default
 targetEntityType: paragraph
@@ -31,6 +33,18 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_link:
+    weight: 3
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
   field_size:
     weight: 2
     label: above

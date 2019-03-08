@@ -4,6 +4,7 @@ namespace Drupal\neg_paragraphs;
 
 use Drupal\negnet_utility\FieldUtilities;
 use Drupal\neg_paragraphs\videos\videoEmbed;
+use Drupal\Core\Url;
 
 /**
  * Paragraph preprocess handlers.
@@ -120,12 +121,19 @@ class ParagraphProcessor {
    * Preprocesses Images.
    */
   public function processImage(&$variables) {
+
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_link')) {
+      $uri = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_link)[0]['uri'];
+      $variables['link'] = Url::fromUri($uri)->toString();
+    }
+
     if (isset($variables['elements']['#paragraph']->field_image)) {
       $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
       foreach ($variables['image'] as &$image) {
         $this->setupImage($image);
       }
     }
+
     if (isset($variables['elements']['field_caption'])) {
       $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
     }

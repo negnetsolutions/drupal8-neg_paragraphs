@@ -4,11 +4,13 @@ dependencies:
   config:
     - field.field.paragraph.image.field_caption
     - field.field.paragraph.image.field_image
+    - field.field.paragraph.image.field_link
     - field.field.paragraph.image.field_size
     - image.style.thumbnail
     - paragraphs.paragraphs_type.image
   module:
     - field_group
+    - link
     - image
     - text
 third_party_settings:
@@ -17,7 +19,7 @@ third_party_settings:
       children:
         - field_caption
       parent_name: ''
-      weight: 20
+      weight: 2
       format_type: details
       format_settings:
         id: ''
@@ -29,7 +31,7 @@ third_party_settings:
       children:
         - field_size
       parent_name: ''
-      weight: 20
+      weight: 3
       format_type: details
       format_settings:
         id: ''
@@ -57,6 +59,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_link:
+    weight: 1
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_size:
     weight: 21
