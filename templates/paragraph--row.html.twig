@@ -1,4 +1,4 @@
-<div class='paragraph-row {{ margins | join(' ') }}{% if row_layout %} {{ row_layout }}{% endif %}'>
+<div class='paragraph-row {{ margins | join(' ') }}{% if attributes.parent_class %} {{ attributes.parent_class }}{% endif %}{% if row_layout %} {{ row_layout }}{% endif %}'>
   <div class='{{ attributes.class }}'>
     {% for col in columns %}
       {{ col }}
