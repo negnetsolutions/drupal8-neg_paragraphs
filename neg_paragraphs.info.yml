@@ -33,4 +33,10 @@ dependencies:
   - webform
   - honeypot
   - purge
-  - varnish_purge
+  - purge_queuer_coretags
+  - purge_processor_cron
+  - purge_tokens
+  - purge_drush
+  - purge_ui
+  - varnish_purger
+  - varnish_purge_tags
