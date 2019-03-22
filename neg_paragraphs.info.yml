@@ -32,3 +32,5 @@ dependencies:
   - user
   - webform
   - honeypot
+  - purge
+  - varnish_purge
