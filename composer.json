@@ -5,6 +5,7 @@
   "license": "GPL-3.0+",
   "require": {
     "negnet/neg_utilities": "master",
+    "negnet/neg_purger": "master",
     "drupal/admin_toolbar": "^1.24",
     "drupal/adminimal_admin_toolbar": "^1.8",
     "drupal/entity_reference_revisions": "^1.5",
@@ -16,8 +17,6 @@
     "drupal/pathauto": "^1.2",
     "drupal/webform": "^5.0",
     "drupal/metatag": "^1.0",
-    "drupal/simple_sitemap": "^2.12",
-    "drupal/purge": "^3.0@beta",
-    "drupal/varnish_purge": "^1.11"
+    "drupal/simple_sitemap": "^2.12"
   }
 }

@@ -32,11 +32,4 @@ dependencies:
   - user
   - webform
   - honeypot
-  - purge
-  - purge_queuer_coretags
-  - purge_processor_lateruntime
-  - purge_tokens
-  - purge_drush
-  - purge_ui
-  - varnish_purger
-  - varnish_purge_tags
+  - neg_purger
