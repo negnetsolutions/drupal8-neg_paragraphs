@@ -45,7 +45,7 @@ class VideoEmbed {
       $handler = 'Youtube';
     }
 
-    return "Drupal\\neg_paragraphs\\videos\\$handler";
+    return "Drupal\\neg_paragraphs\\Videos\\$handler";
   }
 
   /**
