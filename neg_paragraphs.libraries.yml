@@ -7,6 +7,8 @@ vimeo:
   css:
     theme:
       css/video.css: {}
+  dependencies:
+    - core/jquery
 youtube:
   version: 1.0
   js:
