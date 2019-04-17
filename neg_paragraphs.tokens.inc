@@ -70,20 +70,22 @@ function neg_paragraphs_tokens($type, $tokens, array $data, array $options, Bubb
                 foreach ($fields as $field) {
                   $textboxes = $field->getValue();
                   foreach ($textboxes as $textbox) {
-                    if (preg_match_all('/<img[\\w\\W]+?class="([a-zA-Z-_0-9]+)"[\\w\\W]+?src="\/sites\/default\/files\/([\\w\\s-?=\\.\/]+)"[\\w\\W]+?\/>/u', $textbox['value'], $matches_code)) {
-                      foreach ($matches_code[0] as $ci => $code) {
-                        // Get image filename.
-                        $img = $matches_code[2][$ci];
+                    if (isset($textbox['value'])) {
+                      if (preg_match_all('/<img[\\w\\W]+?class="([a-zA-Z-_0-9]+)"[\\w\\W]+?src="\/sites\/default\/files\/([\\w\\s-?=\\.\/]+)"[\\w\\W]+?\/>/u', $textbox['value'], $matches_code)) {
+                        foreach ($matches_code[0] as $ci => $code) {
+                          // Get image filename.
+                          $img = $matches_code[2][$ci];
 
-                        // Remove any parameters.
-                        $imgf = strstr($img, '?', TRUE);
-                        if ($imgf !== FALSE) {
-                          $img = $imgf;
+                          // Remove any parameters.
+                          $imgf = strstr($img, '?', TRUE);
+                          if ($imgf !== FALSE) {
+                            $img = $imgf;
+                          }
+
+                          $uri = "public://" . $img;
+                          $url = ImageStyle::load('rs_image_1200w')->buildUrl($uri);
+                          $images[] = $url;
                         }
-
-                        $uri = "public://" . $img;
-                        $url = ImageStyle::load('rs_image_1200w')->buildUrl($uri);
-                        $images[] = $url;
                       }
                     }
                   }
