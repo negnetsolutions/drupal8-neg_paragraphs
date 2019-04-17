@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\neg_paragraphs\videos;
+namespace Drupal\neg_paragraphs\Videos;
 
 /**
  * Video Embedder.

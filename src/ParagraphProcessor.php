@@ -3,7 +3,7 @@
 namespace Drupal\neg_paragraphs;
 
 use Drupal\negnet_utility\FieldUtilities;
-use Drupal\neg_paragraphs\videos\videoEmbed;
+use Drupal\neg_paragraphs\Videos\VideoEmbed;
 use Drupal\Core\Url;
 
 /**
