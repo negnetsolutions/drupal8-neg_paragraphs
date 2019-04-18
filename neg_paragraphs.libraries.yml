@@ -1,14 +1,12 @@
 vimeo:
   version: 1.0
   js:
-    js/fitvids_paragraphs.js: {}
+    js/noframe.js: {}
     js/vimeo_player.js: {}
     js/vimeo_videos.js: {}
   css:
     theme:
       css/video.css: {}
-  dependencies:
-    - core/jquery
 youtube:
   version: 1.0
   js:
