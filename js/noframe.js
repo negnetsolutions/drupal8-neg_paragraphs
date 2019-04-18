@@ -33,9 +33,8 @@
       fitVid.remove();
       div.appendChild(fitVid);
 
-      // Clear height/width from fitVid
-      fitVid.removeAttribute("height");
-      fitVid.removeAttribute("width");
+      fitVid.setAttribute("height", "100%");
+      fitVid.setAttribute("width", "100%");
     }
   }
 })(window, document);
