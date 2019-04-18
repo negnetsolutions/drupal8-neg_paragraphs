@@ -1,4 +1,4 @@
-<figure class="col paragraph paragraph-image responsive-image rs_image {{ sizing }} {{ attributes.class }}">
+<figure class="col paragraph paragraph-image responsive-image rs_image {% if captions|length > 0 %} has_caption {% endif %}{{ sizing }} {{ attributes.class }}">
   {% if link %}
   <a href="{{link}}">
   {% endif %}
