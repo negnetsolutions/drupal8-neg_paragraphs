@@ -16,7 +16,7 @@
   {% endif %}
 
   {% if video %}
-    <iframe src="{{ video}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    <iframe title="{% if paragraph.field_image.alt %}{{ paragraph.field_image.alt }}{% else %}Video{% endif %}" src="{{ video}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
   {% endif %}
 
 </figure>
