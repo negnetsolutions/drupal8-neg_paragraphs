@@ -30,7 +30,7 @@
       div.className = "fitVids-wrapper";
       div.style.paddingBottom = aspectRatio * 100 + "%";
       parentDiv.insertBefore(div, fitVid);
-      fitVid.remove();
+      fitVid.parentNode.removeChild(fitVid);
       div.appendChild(fitVid);
 
       fitVid.setAttribute("height", "100%");
