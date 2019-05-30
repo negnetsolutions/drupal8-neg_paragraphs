@@ -2,6 +2,8 @@
 
 namespace Drupal\neg_paragraphs\Videos;
 
+use Drupal\negnet_utility\VimeoVideo;
+
 /**
  * Vimeo Video Handler.
  */
@@ -11,6 +13,8 @@ class Vimeo extends Handler {
    * Implements embed function.
    */
   public function embed() {
+
+    parent::embed();
 
     $this->variables['#attached']['library'][] = 'neg_paragraphs/vimeo';
 
@@ -41,7 +45,23 @@ class Vimeo extends Handler {
 
     $this->variables['type'] = 'vimeo';
 
-    return $link;
+    $this->variables['embedlink'] = $link;
+  }
+
+  /**
+   * Sets up a popup.
+   */
+  public function popup() {
+    parent::popup();
+  }
+
+  /**
+   * RenderCoverImage base.
+   */
+  protected function renderCoverImage() {
+    // Let's fetch the vimeo poster image.
+    $video = new VimeoVideo($this->url);
+    return $video->renderCoverImage();
   }
 
   /**

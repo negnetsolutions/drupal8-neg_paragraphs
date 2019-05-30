@@ -11,6 +11,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: lightbox
+      label: Open in Lightbox
+    -
       value: autoplay
       label: Autoplay
     -

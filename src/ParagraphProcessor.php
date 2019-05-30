@@ -161,21 +161,25 @@ class ParagraphProcessor {
 
     $options = [];
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_video_options')) {
-      $options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_video_options);
+      $field_options = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_video_options);
+      foreach ($field_options as $option) {
+        $options[] = $option['value'];
+      }
     }
 
-    if (isset($variables['elements']['field_video_url'])) {
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_video_url')) {
+
+      if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_image')) {
+        $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
+        foreach ($variables['image'] as &$image) {
+          $this->setupImage($image);
+        }
+      }
+
       $urlObject = FieldUtilities::elementChildren($variables['elements']['field_video_url']);
       $url = $urlObject[0]['#url']->toString();
-      $video = new videoEmbed($url, $options, $variables);
+      $video = new VideoEmbed($url, $options, $variables);
       $video->embed();
-    }
-
-    if (isset($variables['elements']['field_image'])) {
-      $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
-      foreach ($variables['image'] as &$image) {
-        $this->setupImage($image);
-      }
     }
 
     if (isset($variables['elements']['field_caption'])) {

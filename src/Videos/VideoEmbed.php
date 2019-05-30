@@ -52,7 +52,7 @@ class VideoEmbed {
    * Embeds a video.
    */
   public function embed() {
-    $this->variables['video'] = $this->handler->embed();
+    $this->variables['video'] = $this->handler->insert();
     return TRUE;
   }
 

@@ -1,26 +1,34 @@
 .paragraph-video {
   position: relative;
   overflow: hidden;
-  .poster {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    min-width: 100%;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 0;
-    &.visible {
-      pointer-events: auto;
-      opacity: 1 !important;
-      z-index: 9;
-    }
-    &.transparent {
-      background: transparent;
+  &.embedded {
+    .poster {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 100%;
+      transform: translate(-50%,-50%);
+      min-width: 100%;
+      min-height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 0;
+      &.visible {
+        pointer-events: auto;
+        opacity: 1 !important;
+        z-index: 9;
+      }
+      &.transparent {
+        background: transparent;
+      }
     }
   }
   iframe {
     position: absolute;
     z-index: 1;
+    opacity: 0;
+    &.playing {
+      opacity: 1;
+    }
   }
 }

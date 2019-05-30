@@ -1,4 +1,8 @@
 <figure class="col paragraph paragraph-video {{type}} {{ attributes.class }}">
+  {% if link %}
+  <a href="{{ link }}" class="lightbox">
+  {% endif %}
+
   {% if image %}
   <figure class='poster visible'>
     {{ image }}
@@ -15,8 +19,10 @@
   </figure>
   {% endif %}
 
-  {% if video %}
-    <iframe title="{% if paragraph.field_image.alt %}{{ paragraph.field_image.alt }}{% else %}Video{% endif %}" src="{{ video}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
+  {% if embedlink|render %}
+    <iframe title="{% if paragraph.field_image.alt %}{{ paragraph.field_image.alt }}{% else %}Video{% endif %}" src="{{ embedlink }}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
   {% endif %}
-
+  {% if link %}
+  </a>
+  {% endif %}
 </figure>
