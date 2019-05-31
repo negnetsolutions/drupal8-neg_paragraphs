@@ -18,5 +18,10 @@
     "drupal/webform": "^5.0",
     "drupal/metatag": "^1.0",
     "drupal/simple_sitemap": "^2.12"
+  },
+  "patches": {
+    "drupal/paragraphs": {
+      "Fix Field Group and Paragraphs": "https://www.drupal.org/files/issues/2907094_7_field_group_support.patch"
+    }
   }
 }
