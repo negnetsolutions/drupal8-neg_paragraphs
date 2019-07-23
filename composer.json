@@ -17,7 +17,7 @@
     "drupal/pathauto": "^1.2",
     "drupal/webform": "^5.0",
     "drupal/metatag": "^1.0",
-    "drupal/simple_sitemap": "^2.12"
+    "drupal/simple_sitemap": "^3.3"
   },
   "extra": {
     "patches": {
