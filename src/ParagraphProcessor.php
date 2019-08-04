@@ -147,6 +147,11 @@ class ParagraphProcessor {
    * Preprocesses Text Boxes.
    */
   public function processTextBox(&$variables) {
+
+    $variables['attributes']['class'][] = 'col';
+    $variables['attributes']['class'][] = 'paragraph';
+    $variables['attributes']['class'][] = 'paragraph-textbox';
+
     if (FieldUtilities::fieldHasChildren($variables['elements'], 'field_body')) {
       $variables['bodies'] = FieldUtilities::elementChildren($variables['elements']['field_body']);
       $variables['body_count'] = count($variables['bodies']);
