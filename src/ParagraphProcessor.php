@@ -122,6 +122,12 @@ class ParagraphProcessor {
    */
   public function processImage(&$variables) {
 
+    $variables['attributes']['class'][] = 'col';
+    $variables['attributes']['class'][] = 'paragraph';
+    $variables['attributes']['class'][] = 'paragraph-image';
+    $variables['attributes']['class'][] = 'responsive_image';
+    $variables['attributes']['class'][] = 'rs_image';
+
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_link')) {
       $uri = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_link)[0]['uri'];
       $variables['link'] = Url::fromUri($uri)->toString();
@@ -136,10 +142,12 @@ class ParagraphProcessor {
 
     if (isset($variables['elements']['field_caption'])) {
       $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
+      $variables['attributes']['class'][] = 'has_caption';
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_size')) {
       $variables['sizing'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_size)[0]['value'];
+      $variables['attributes']['class'][] = $variables['sizing'];
     }
   }
 
