@@ -4,4 +4,7 @@
       {{ col }}
     {% endfor %}
   </div>
+  {% if htmlAppend %}
+    {{ htmlAppend|raw }}
+  {% endif %}
 </div>
