@@ -68,7 +68,7 @@ class ParagraphProcessor {
             break;
 
           case 'fullscreen':
-            $this->setIsFullScreen();
+            $this->setIsFullScreen($variables);
             break;
 
           case 'slider':
@@ -89,9 +89,9 @@ class ParagraphProcessor {
   /**
    * Inform's the theme that the row should be set to full screen mode.
    */
-  public function setIsFullScreen() {
+  public function setIsFullScreen(&$variables) {
     // Only set fullscreen flag if this paragraph row is the first row.
-    if (isset($GLOBALS['paragraph_row_count']) && $GLOBALS['paragraph_row_count'] == 1) {
+    if ($variables['view_mode'] !== 'preview' && isset($GLOBALS['paragraph_row_count']) && $GLOBALS['paragraph_row_count'] == 1) {
       $GLOBALS['neg_fullscreen'] = TRUE;
     }
   }
