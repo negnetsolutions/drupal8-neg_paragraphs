@@ -140,9 +140,29 @@ class ParagraphProcessor {
       }
     }
 
-    if (isset($variables['elements']['field_caption'])) {
-      $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
-      $variables['attributes']['class'][] = 'has_caption';
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_caption')) {
+      $caption = $variables['elements']['#paragraph']->get('field_caption');
+      if (!$caption->isEmpty()) {
+        $values = $caption->getValue();
+        $variables['captions'] = [];
+        $hasText = FALSE;
+
+        foreach ($values as $value) {
+          $markup = check_markup($value['value'], $value['format']);
+          $variables['captions'][] = $markup;
+
+          if (strlen(trim(strip_tags($markup))) > 0) {
+            $hasText = TRUE;
+          }
+        }
+
+        if ($hasText) {
+          $variables['attributes']['class'][] = 'has_caption';
+        }
+        else {
+          unset($variables['captions']);
+        }
+      }
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_size')) {
