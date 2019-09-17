@@ -14,6 +14,12 @@ use Drupal\negnet_utility\FieldUtilities;
 function neg_paragraphs_preprocess_html(&$variables) {
   if (isset($GLOBALS['neg_fullscreen'])) {
     $variables['attributes']['class'][] = 'fullscreen';
+
+    $node = \Drupal::request()->attributes->get('node');
+    if ($node) {
+      $variables['#cache'] = [];
+      $variables['#cache']['tags'] = $node->getCacheTags();
+    }
   }
 }
 
