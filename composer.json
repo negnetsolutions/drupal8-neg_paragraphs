@@ -6,7 +6,7 @@
   "require": {
     "negnet/neg_utilities": "master",
     "negnet/neg_purger": "master",
-    "drupal/admin_toolbar": "^1.24",
+    "drupal/admin_toolbar": "^2.0",
     "drupal/adminimal_admin_toolbar": "^1.8",
     "drupal/entity_reference_revisions": "^1.5",
     "drupal/field_group": "^3.0",
