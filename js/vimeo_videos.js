@@ -10,6 +10,10 @@
     const playbtn = el.querySelector(".poster button");
 
     const setPosterVisible = function(visible, showPoster) {
+      if (poster === null) {
+        return;
+      }
+
       if (visible == true) {
         poster.classList.add("visible");
       } else {
@@ -37,9 +41,11 @@
       iframe.classList.remove('playing');
     });
 
-    poster.addEventListener("click", function() {
-      player.play();
-    });
+    if (poster !== null) {
+      poster.addEventListener("click", function() {
+        player.play();
+      });
+    }
 
     setPosterVisible(true, true);
 
