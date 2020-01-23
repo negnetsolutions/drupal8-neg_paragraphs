@@ -10,6 +10,32 @@ use Drupal\paragraphs\Entity\Paragraph;
 class ParagraphHelper {
 
   /**
+   * Gets all of the rows on Type.
+   */
+  public static function fetchRowsOfType(array $types, $node) {
+    $rows = [];
+
+    // Make sure we have a node with the right fields.
+    if ($node && $node->hasField('field_layout_rows')) {
+      $paragraph_row_field_values = $node->get('field_layout_rows')->getValue();
+
+      // paragraph_row.
+      foreach ($paragraph_row_field_values as $paragraph_row_field_value) {
+        $paragraph_row_entity = Paragraph::load($paragraph_row_field_value['target_id']);
+
+        // Check to see if this entity is one of
+        // our text-based paragraphs.
+        if ($paragraph_row_entity && in_array($paragraph_row_entity->getType(), $types)) {
+          $rows[] = $paragraph_row_entity;
+        }
+
+      }
+    }
+
+    return $rows;
+  }
+
+  /**
    * Gets all the columns of Type.
    */
   public static function fetchColumnsOfType(array $types, $node) {
