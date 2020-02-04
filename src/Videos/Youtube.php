@@ -11,16 +11,9 @@ class Youtube extends Handler {
   const IMAGE_DIRECTORY = 'youtube_images';
 
   /**
-   * Embeds a youtube video.
+   * Gets the video link.
    */
-  public function embed() {
-
-    parent::embed();
-
-    $this->variables['type'] = 'youtube';
-
-    $this->variables['#attached']['library'][] = 'neg_paragraphs/youtube';
-
+  public function getEmbedLink() {
     $link = "//www.youtube.com/embed/" . $this->getVideoId();
 
     foreach ($this->options as $option) {
@@ -36,6 +29,22 @@ class Youtube extends Handler {
     }
 
     $this->addParameter($link, 'rel=0&showinfo=0&enablejsapi=1&modestbranding=1');
+
+    return $link;
+  }
+
+  /**
+   * Embeds a youtube video.
+   */
+  public function embed() {
+
+    parent::embed();
+
+    $this->variables['type'] = 'youtube';
+
+    $this->variables['#attached']['library'][] = 'neg_paragraphs/youtube';
+
+    $link = $this->getEmbedLink();
     $this->variables['embedlink'] = $link;
   }
 

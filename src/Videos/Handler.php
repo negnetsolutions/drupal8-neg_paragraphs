@@ -21,6 +21,13 @@ class Handler {
   }
 
   /**
+   * Gets the embed link.
+   */
+  public function getEmbedLink() {
+    return NULL;
+  }
+
+  /**
    * Inserts the video.
    */
   public function insert() {

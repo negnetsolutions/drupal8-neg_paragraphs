@@ -49,6 +49,13 @@ class VideoEmbed {
   }
 
   /**
+   * Gets the embed link.
+   */
+  public function getEmbedLink() {
+    return $this->handler->getEmbedLink();
+  }
+
+  /**
    * Embeds a video.
    */
   public function embed() {

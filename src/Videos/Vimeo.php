@@ -10,16 +10,10 @@ use Drupal\negnet_utility\VimeoVideo;
 class Vimeo extends Handler {
 
   /**
-   * Implements embed function.
+   * Gets the video link.
    */
-  public function embed() {
-
-    parent::embed();
-
-    $this->variables['#attached']['library'][] = 'neg_paragraphs/vimeo';
-
-    $video_id = $this->getVideoId();
-    $link = "//player.vimeo.com/video/" . $video_id;
+  public function getEmbedLink() {
+    $link = "//player.vimeo.com/video/" . $this->getVideoId();
 
     foreach ($this->options as $option) {
       switch ($option) {
@@ -42,6 +36,20 @@ class Vimeo extends Handler {
     }
 
     $this->addParameter($link, 'badge=0&byline=0&portrait=0&title=0');
+
+    return $link;
+  }
+
+  /**
+   * Implements embed function.
+   */
+  public function embed() {
+
+    parent::embed();
+
+    $this->variables['#attached']['library'][] = 'neg_paragraphs/vimeo';
+
+    $link = $this->getEmbedLink();
 
     $this->variables['type'] = 'vimeo';
 
