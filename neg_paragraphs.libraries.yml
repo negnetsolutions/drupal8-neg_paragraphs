@@ -8,15 +8,20 @@ lightbox:
       css/magnific-popup.css: {}
   dependencies:
     - core/jquery
-vimeo:
+vimeo_base:
   version: 1.0
   js:
     js/noframe.js: {}
     js/vimeo_player.js: {}
-    js/vimeo_videos.js: {}
   css:
     theme:
       css/video.css: {}
+vimeo:
+  version: 1.0
+  js:
+    js/vimeo_videos.js: {}
+  dependencies:
+    - neg_paragraphs/vimeo_base
 youtube:
   version: 1.0
   js:
