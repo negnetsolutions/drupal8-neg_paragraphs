@@ -1,0 +1,23 @@
+uuid: 8df44f37-a1c6-4c42-b54c-6d0eb0c5ecaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_size
+    - paragraphs.paragraphs_type.picture
+  module:
+    - options
+id: paragraph.picture.field_size
+field_name: field_size
+entity_type: paragraph
+bundle: picture
+label: Size
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: full
+default_value_callback: ''
+settings: {  }
+field_type: list_string

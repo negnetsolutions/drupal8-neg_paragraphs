@@ -1,0 +1,19 @@
+uuid: 9bd250d7-111a-4ec3-b974-17b77ed9e0fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alt
+    - paragraphs.paragraphs_type.picture
+id: paragraph.picture.field_alt
+field_name: field_alt
+entity_type: paragraph
+bundle: picture
+label: 'Alt Text'
+description: 'This text will be used by screen readers, search engines, or when the image cannot be loaded.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
