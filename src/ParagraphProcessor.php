@@ -118,6 +118,60 @@ class ParagraphProcessor {
   }
 
   /**
+   * Preprocesses Pictures.
+   */
+  public function processPicture(&$variables) {
+
+    $variables['attributes']['class'][] = 'col';
+    $variables['attributes']['class'][] = 'paragraph';
+    $variables['attributes']['class'][] = 'paragraph-image';
+    $variables['attributes']['class'][] = 'responsive_image';
+    $variables['attributes']['class'][] = 'rs_image';
+
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_link')) {
+      $uri = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_link)[0]['uri'];
+      $variables['link'] = Url::fromUri($uri)->toString();
+    }
+
+    if (isset($variables['elements']['#paragraph']->field_image)) {
+      $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
+      foreach ($variables['image'] as &$image) {
+        $this->setupImage($image);
+      }
+    }
+
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_caption')) {
+      $caption = $variables['elements']['#paragraph']->get('field_caption');
+      if (!$caption->isEmpty()) {
+        $values = $caption->getValue();
+        $variables['captions'] = [];
+        $hasText = FALSE;
+
+        foreach ($values as $value) {
+          $markup = check_markup($value['value'], $value['format']);
+          $variables['captions'][] = $markup;
+
+          if (strlen(trim(strip_tags($markup))) > 0) {
+            $hasText = TRUE;
+          }
+        }
+
+        if ($hasText) {
+          $variables['attributes']['class'][] = 'has_caption';
+        }
+        else {
+          unset($variables['captions']);
+        }
+      }
+    }
+
+    if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_size')) {
+      $variables['sizing'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_size)[0]['value'];
+      $variables['attributes']['class'][] = $variables['sizing'];
+    }
+  }
+
+  /**
    * Preprocesses Images.
    */
   public function processImage(&$variables) {

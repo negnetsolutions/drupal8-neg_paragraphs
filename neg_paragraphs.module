@@ -54,6 +54,10 @@ function neg_paragraphs_theme($existing, $type, $theme, $path) {
       'template' => 'paragraph--image' ,
       'base hook' => 'paragraph',
     ],
+    'paragraph__picture' => [
+      'template' => 'paragraph--picture' ,
+      'base hook' => 'paragraph',
+    ],
     'paragraph__video' => [
       'template' => 'paragraph--video' ,
       'base hook' => 'paragraph',
