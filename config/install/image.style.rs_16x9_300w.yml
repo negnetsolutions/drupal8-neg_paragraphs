@@ -1,0 +1,15 @@
+uuid: 3e4a0609-d352-4cde-abd2-1e2453826b2f
+langcode: en
+status: true
+dependencies: {  }
+name: rs_16x9_300w
+label: rs_16x9_300w
+effects:
+  6436c5e8-eb18-4aee-a52d-5ec56b786ecb:
+    uuid: 6436c5e8-eb18-4aee-a52d-5ec56b786ecb
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 169
+      anchor: center-center

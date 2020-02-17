@@ -1,6 +1,9 @@
+uuid: ac7ead43-8c00-4f4c-91dc-e4df20e9b2d5
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: GjfrIHIKieFxj0oSS2_aQTMo_bpa6y4EMoz0C4Hp_O0
 name: rs_square_600w
 label: rs_square_600w
 effects:
@@ -11,3 +14,4 @@ effects:
     data:
       width: 600
       height: 600
+      anchor: center-center

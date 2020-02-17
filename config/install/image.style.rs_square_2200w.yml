@@ -1,6 +1,9 @@
+uuid: 2b56843a-b243-4894-9b81-046ce65220e9
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: kIMoOtXS_TbEVeN3LoNhNwux9VJQVfSM6kyuJVa6ZYQ
 name: rs_square_2200w
 label: rs_square_2200w
 effects:
@@ -11,3 +14,4 @@ effects:
     data:
       width: 2200
       height: 2200
+      anchor: center-center

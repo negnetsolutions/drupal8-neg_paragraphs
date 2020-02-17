@@ -1,6 +1,9 @@
+uuid: 851f16da-6018-40b4-ad4a-cc705fb785a7
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: X_k_ctjOxUcuVH7YNbh36kdTKv6yA8aJtArSeoibvmw
 name: rs_square_1200w
 label: rs_square_1200w
 effects:
@@ -11,3 +14,4 @@ effects:
     data:
       width: 1200
       height: 1200
+      anchor: center-center

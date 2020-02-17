@@ -1,0 +1,15 @@
+uuid: 3c64e8c2-3bb9-42e6-8747-627b505fc347
+langcode: en
+status: true
+dependencies: {  }
+name: rs_4x5_800w
+label: rs_4x5_800w
+effects:
+  92a7c026-8982-40ca-a7be-fc393660ad6c:
+    uuid: 92a7c026-8982-40ca-a7be-fc393660ad6c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 1000
+      anchor: center-center

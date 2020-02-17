@@ -1,6 +1,9 @@
+uuid: 8d1be21f-55c5-40d4-bb1f-f1ed6844ffb0
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: GBooichSRpSu7Oitb5lquKrGbH4hnnvVLO-tziz6c7c
 name: rs_image_1800w
 label: rs_image_1800w
 effects:

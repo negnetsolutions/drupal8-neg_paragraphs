@@ -1,0 +1,15 @@
+uuid: f3e6c9fd-7517-4a7a-85c9-3a99d15432e3
+langcode: en
+status: true
+dependencies: {  }
+name: rs_16x9_2200w
+label: rs_16x9_2200w
+effects:
+  0c423a55-9682-4c48-8a50-b41dd4d07a84:
+    uuid: 0c423a55-9682-4c48-8a50-b41dd4d07a84
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2200
+      height: 1238
+      anchor: center-center

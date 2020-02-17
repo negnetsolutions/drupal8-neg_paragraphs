@@ -1,6 +1,9 @@
+uuid: 2256fbab-df09-4e93-ad1a-73d3d9696a6e
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: '-N8boQ_DSecIZy8_S6YvfhmT5Vo_ylUN4FvFVqIhThg'
 name: rs_square_800w
 label: rs_square_800w
 effects:
@@ -11,3 +14,4 @@ effects:
     data:
       width: 800
       height: 800
+      anchor: center-center

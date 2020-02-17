@@ -1,0 +1,15 @@
+uuid: 31aff4a3-d367-4fc9-93f5-5ecdb4876000
+langcode: en
+status: true
+dependencies: {  }
+name: rs_9x16_300w
+label: rs_9x16_300w
+effects:
+  86b2b660-fe50-40b5-9926-0a3b6023fa50:
+    uuid: 86b2b660-fe50-40b5-9926-0a3b6023fa50
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 533
+      anchor: center-center

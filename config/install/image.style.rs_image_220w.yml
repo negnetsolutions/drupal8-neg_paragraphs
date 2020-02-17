@@ -1,6 +1,9 @@
+uuid: ee6ed71b-a38e-441b-9ad2-0ff19de19dcf
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: HS9Gx-ukNXbQFHH7yWcq_EDX74GypSB7VCX3oUxbqHg
 name: rs_image_220w
 label: rs_image_220w
 effects:

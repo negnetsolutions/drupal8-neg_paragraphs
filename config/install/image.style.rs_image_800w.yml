@@ -1,6 +1,9 @@
+uuid: 83ddf1d7-b150-4b7d-8c5c-7990dca7ecef
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: jrdX6vb0RL7qfXeDdCezJilce4yyuea1yUheO9B9Csw
 name: rs_image_800w
 label: rs_image_800w
 effects:

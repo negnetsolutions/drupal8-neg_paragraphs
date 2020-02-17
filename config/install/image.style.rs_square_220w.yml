@@ -1,6 +1,9 @@
+uuid: 8ce18e1a-52da-4486-913c-2371291b156f
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 1Fx-2vTVzwq2yy3uAM-MnVreVfgEbk1STRxxOJSvwTc
 name: rs_square_220w
 label: rs_square_220w
 effects:
@@ -11,3 +14,4 @@ effects:
     data:
       width: 220
       height: 220
+      anchor: center-center

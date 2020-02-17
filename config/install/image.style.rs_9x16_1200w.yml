@@ -1,0 +1,15 @@
+uuid: 61080ad8-df20-483d-953d-4aef118abf35
+langcode: en
+status: true
+dependencies: {  }
+name: rs_9x16_1200w
+label: rs_9x16_1200w
+effects:
+  eee390b9-0aba-4d18-9cbc-f633a399013e:
+    uuid: eee390b9-0aba-4d18-9cbc-f633a399013e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 2133
+      anchor: center-center

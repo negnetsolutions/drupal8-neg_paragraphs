@@ -1,3 +1,4 @@
+uuid: a0de601b-4151-4678-b0a9-68ffebba4202
 langcode: en
 status: true
 dependencies:
@@ -11,6 +12,8 @@ dependencies:
     - image.style.rs_square_800w
   module:
     - neg_paragraphs
+_core:
+  default_config_hash: o8_HGPlw-A_3gWdrrBuimzqmPnDk_9jXa4SSCab_Tjw
 id: rs_square
 label: rs_square
 image_style_mappings:

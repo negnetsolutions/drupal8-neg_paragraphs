@@ -1,6 +1,9 @@
+uuid: aaff74f6-d506-435c-957f-131a5f1d073a
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 6B5Q51QRYeGA8CalHW1FIn7IJr8IroFRd3oRYHw7Y4o
 name: rs_image_1200w
 label: rs_image_1200w
 effects:

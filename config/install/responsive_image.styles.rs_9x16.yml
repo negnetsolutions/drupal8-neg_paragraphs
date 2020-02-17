@@ -1,0 +1,27 @@
+uuid: 2e0de057-844b-473b-b1e8-f502169f0d17
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.rs_9x16_1200w
+    - image.style.rs_9x16_2200w
+    - image.style.rs_9x16_300w
+    - image.style.rs_9x16_600w
+  module:
+    - neg_paragraphs
+id: rs_9x16
+label: rs_9x16
+image_style_mappings:
+  -
+    breakpoint_id: neg_paragraphs.rs_images.main
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - rs_9x16_1200w
+        - rs_9x16_2200w
+        - rs_9x16_300w
+        - rs_9x16_600w
+breakpoint_group: neg_paragraphs
+fallback_image_style: rs_9x16_300w

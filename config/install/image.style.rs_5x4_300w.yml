@@ -1,0 +1,15 @@
+uuid: de01b505-c36c-4200-a4d8-bcada5f113e8
+langcode: en
+status: true
+dependencies: {  }
+name: rs_5x4_300w
+label: rs_5x4_300w
+effects:
+  5c3389db-c3dd-4299-95a9-e41b1809738a:
+    uuid: 5c3389db-c3dd-4299-95a9-e41b1809738a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 240
+      anchor: center-center

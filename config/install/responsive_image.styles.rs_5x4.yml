@@ -1,0 +1,27 @@
+uuid: e3ac0306-79eb-41e6-abea-06ef115eeadb
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.rs_5x4_1200w
+    - image.style.rs_5x4_2200w
+    - image.style.rs_5x4_300w
+    - image.style.rs_5x4_600w
+  module:
+    - neg_paragraphs
+id: rs_5x4
+label: rs_5x4
+image_style_mappings:
+  -
+    breakpoint_id: neg_paragraphs.rs_images.main
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - rs_5x4_1200w
+        - rs_5x4_2200w
+        - rs_5x4_300w
+        - rs_5x4_600w
+breakpoint_group: neg_paragraphs
+fallback_image_style: rs_5x4_300w

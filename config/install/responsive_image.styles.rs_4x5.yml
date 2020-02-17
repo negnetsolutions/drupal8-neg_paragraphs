@@ -1,0 +1,29 @@
+uuid: 88ee7e5c-ddf5-407f-baef-a0ae15022db4
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.rs_4x5_1200w
+    - image.style.rs_4x5_2200w
+    - image.style.rs_4x5_300w
+    - image.style.rs_4x5_600w
+    - image.style.rs_4x5_800w
+  module:
+    - neg_paragraphs
+id: rs_4x5
+label: rs_4x5
+image_style_mappings:
+  -
+    breakpoint_id: neg_paragraphs.rs_images.main
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - rs_4x5_1200w
+        - rs_4x5_2200w
+        - rs_4x5_300w
+        - rs_4x5_600w
+        - rs_4x5_800w
+breakpoint_group: neg_paragraphs
+fallback_image_style: rs_4x5_300w

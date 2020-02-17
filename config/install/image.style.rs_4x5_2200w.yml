@@ -1,0 +1,15 @@
+uuid: 1178eef0-c2c1-4efd-9746-09855fba91b8
+langcode: en
+status: true
+dependencies: {  }
+name: rs_4x5_2200w
+label: rs_4x5_2200w
+effects:
+  762e70a4-bd11-4ac6-b772-4e1b639e22d8:
+    uuid: 762e70a4-bd11-4ac6-b772-4e1b639e22d8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2200
+      height: 2750
+      anchor: center-center

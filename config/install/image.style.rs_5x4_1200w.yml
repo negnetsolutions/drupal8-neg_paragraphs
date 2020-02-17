@@ -1,0 +1,15 @@
+uuid: 6e5dfcc7-0a49-44c8-afb8-3cd5be452e1a
+langcode: en
+status: true
+dependencies: {  }
+name: rs_5x4_1200w
+label: rs_5x4_1200w
+effects:
+  1231b494-98cf-445e-91c8-5cf3b63e3e5d:
+    uuid: 1231b494-98cf-445e-91c8-5cf3b63e3e5d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 960
+      anchor: center-center

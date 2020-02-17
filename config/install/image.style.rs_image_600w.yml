@@ -1,6 +1,9 @@
+uuid: c908de35-0d50-4404-a47d-ac154f0b272a
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: o0gXTjBWfZ6C99sNbXRRIPQZjb2F3Jp81LnLALsf5Jw
 name: rs_image_600w
 label: rs_image_600w
 effects:

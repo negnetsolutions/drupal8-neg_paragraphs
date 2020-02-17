@@ -1,3 +1,4 @@
+uuid: 1e5b150b-a4f4-4d51-bad6-342f91fe19cc
 langcode: en
 status: true
 dependencies:
@@ -11,6 +12,8 @@ dependencies:
     - image.style.rs_image_800w
   module:
     - neg_paragraphs
+_core:
+  default_config_hash: MEP0lCR8m_UFrk3dLAg0JuZ-_OWH8W_2rbwSHLP1R4U
 id: rs_image
 label: rs_image
 image_style_mappings:

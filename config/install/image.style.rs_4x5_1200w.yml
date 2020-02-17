@@ -1,0 +1,15 @@
+uuid: 801dfe42-e5f6-432b-a6d2-eae8f287fbc5
+langcode: en
+status: true
+dependencies: {  }
+name: rs_4x5_1200w
+label: rs_4x5_1200w
+effects:
+  6046759e-dee8-42bd-b7af-de307a358b33:
+    uuid: 6046759e-dee8-42bd-b7af-de307a358b33
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 1500
+      anchor: center-center

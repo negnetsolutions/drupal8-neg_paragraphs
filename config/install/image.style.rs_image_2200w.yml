@@ -1,6 +1,9 @@
+uuid: f908b963-1b47-4fe9-8e5e-b49b49981e09
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: uIVTTkJZIk8Yh6YlJgI4o9vWiDZLOFyb4vNam3rrI2g
 name: rs_image_2200w
 label: rs_image_2200w
 effects:

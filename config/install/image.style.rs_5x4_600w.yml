@@ -1,0 +1,15 @@
+uuid: 9d9e9184-d0fa-4336-b24e-2cc5406238c5
+langcode: en
+status: true
+dependencies: {  }
+name: rs_5x4_600w
+label: rs_5x4_600w
+effects:
+  72d9f479-66ae-45dc-ac46-8f5d94135a5c:
+    uuid: 72d9f479-66ae-45dc-ac46-8f5d94135a5c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 480
+      anchor: center-center
