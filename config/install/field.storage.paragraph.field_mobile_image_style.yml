@@ -1,0 +1,21 @@
+uuid: c3aec6c6-0d30-4563-8589-28b06bc95875
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_mobile_image_style
+field_name: field_mobile_image_style
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: neg_paragraphs_image_styles
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

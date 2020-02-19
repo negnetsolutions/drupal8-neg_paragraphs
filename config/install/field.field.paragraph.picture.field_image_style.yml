@@ -1,0 +1,21 @@
+uuid: 77ba2dd2-a040-4ca5-9f8f-52199332e8dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_style
+    - paragraphs.paragraphs_type.picture
+  module:
+    - options
+id: paragraph.picture.field_image_style
+field_name: field_image_style
+entity_type: paragraph
+bundle: picture
+label: 'Image Style'
+description: 'Use this field to force a particular image style.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+uuid: 43c3d4e6-9f5b-4bc1-b5f8-0f6f88776d8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mobile_image_style
+    - paragraphs.paragraphs_type.picture
+  module:
+    - options
+id: paragraph.picture.field_mobile_image_style
+field_name: field_mobile_image_style
+entity_type: paragraph
+bundle: picture
+label: 'Mobile Image Style'
+description: 'Use this field to force a particular mobile image style.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -232,6 +232,10 @@ class ParagraphProcessor {
 
     $image = $variables['content']['field_image'][0];
 
+    if (!$paragraph->field_image_style->isEmpty()) {
+      $image['#responsive_image_style_id'] = $paragraph->field_image_style->first()->getValue()['value'];
+    }
+
     if (isset($variables['elements']['#responsive_image_style_id'])) {
       $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
     }
@@ -239,6 +243,7 @@ class ParagraphProcessor {
     $imageDomItem = $this->getImageAttributes($image);
 
     $variables['image'] = [];
+    $variables['attributes']['class'][] = $image['#responsive_image_style_id'];
     $variables['image']['srcset'] = $imageDomItem->getAttribute('data-srcset');
     $variables['image']['src'] = $imageDomItem->getAttribute('data-src');
 
@@ -266,11 +271,17 @@ class ParagraphProcessor {
     if (!$paragraph->field_mobile_image->isEmpty() && isset($variables['content']['field_mobile_image'])) {
       $mobile = $variables['content']['field_mobile_image'][0];
 
+      if (!$paragraph->field_mobile_image_style->isEmpty()) {
+        $mobile['#responsive_image_style_id'] = $paragraph->field_mobile_image_style->first()->getValue()['value'];
+      }
+
       if (isset($variables['elements']['#mobile_responsive_image_style_id'])) {
         $mobile['#responsive_image_style_id'] = $variables['elements']['#mobile_responsive_image_style_id'];
       }
 
       $mobileDomItem = $this->getImageAttributes($mobile);
+
+      $variables['attributes']['class'][] = 'mobile--' . $mobile['#responsive_image_style_id'];
       $variables['mobile']['srcset'] = $mobileDomItem->getAttribute('data-srcset');
       $variables['mobile']['src'] = $mobileDomItem->getAttribute('src');
 
