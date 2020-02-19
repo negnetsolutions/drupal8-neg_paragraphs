@@ -120,7 +120,7 @@ class ParagraphProcessor {
   /**
    * Preprocesses Pictures.
    */
-  public function processPicture(&$variables) {
+  public function processImage(&$variables) {
 
     $variables['attributes']['class'][] = 'col';
     $variables['attributes']['class'][] = 'paragraph';
@@ -172,9 +172,11 @@ class ParagraphProcessor {
   }
 
   /**
-   * Preprocesses Images.
+   * Preprocesses Picture.
    */
-  public function processImage(&$variables) {
+  public function processPicture(&$variables) {
+
+    $paragraph = $variables['elements']['#paragraph'];
 
     $variables['attributes']['class'][] = 'col';
     $variables['attributes']['class'][] = 'paragraph';
@@ -182,16 +184,14 @@ class ParagraphProcessor {
     $variables['attributes']['class'][] = 'responsive_image';
     $variables['attributes']['class'][] = 'rs_image';
 
+    $variables['lazyload'] = TRUE;
+    if (isset($variables['elements']['#lazyload'])) {
+      $variables['lazyload'] = $variables['elements']['#lazyload'];
+    }
+
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_link')) {
       $uri = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_link)[0]['uri'];
       $variables['link'] = Url::fromUri($uri)->toString();
-    }
-
-    if (isset($variables['elements']['#paragraph']->field_image)) {
-      $variables['image'] = FieldUtilities::elementChildren($variables['elements']['field_image']);
-      foreach ($variables['image'] as &$image) {
-        $this->setupImage($image);
-      }
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_caption')) {
@@ -223,6 +223,102 @@ class ParagraphProcessor {
       $variables['sizing'] = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_size)[0]['value'];
       $variables['attributes']['class'][] = $variables['sizing'];
     }
+
+    // Image setup.
+    $variables['lazyload'] = TRUE;
+    if (isset($variables['elements']['#lazyload'])) {
+      $variables['lazyload'] = $variables['elements']['#lazyload'];
+    }
+
+    $image = $variables['content']['field_image'][0];
+
+    if (isset($variables['elements']['#responsive_image_style_id'])) {
+      $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
+    }
+
+    $imageDomItem = $this->getImageAttributes($image);
+
+    $variables['image'] = [];
+    $variables['image']['srcset'] = $imageDomItem->getAttribute('data-srcset');
+    $variables['image']['src'] = $imageDomItem->getAttribute('data-src');
+
+    if (strlen($variables['image']['src']) === 0) {
+      $variables['image']['src'] = $imageDomItem->getAttribute('src');
+    }
+
+    if (strlen($variables['image']['srcset']) === 0) {
+      unset($variables['image']['srcset']);
+    }
+
+    if (isset($variables['elements']['#sizes'])) {
+      $variables['image']['sizes'] = $variables['elements']['#sizes'];
+    }
+    else {
+      $variables['image']['sizes'] = $imageDomItem->getAttribute('sizes');
+    }
+
+    $variables['image']['class'] = $imageDomItem->getAttribute('class');
+    $variables['alt'] = $imageDomItem->getAttribute('alt');
+    $variables['image']['width'] = $imageDomItem->getAttribute('data-width');
+    $variables['image']['height'] = $imageDomItem->getAttribute('data-height');
+
+    // Mobile Image Setup.
+    if (!$paragraph->field_mobile_image->isEmpty() && isset($variables['content']['field_mobile_image'])) {
+      $mobile = $variables['content']['field_mobile_image'][0];
+
+      if (isset($variables['elements']['#mobile_responsive_image_style_id'])) {
+        $mobile['#responsive_image_style_id'] = $variables['elements']['#mobile_responsive_image_style_id'];
+      }
+
+      $mobileDomItem = $this->getImageAttributes($mobile);
+      $variables['mobile']['srcset'] = $mobileDomItem->getAttribute('data-srcset');
+      $variables['mobile']['src'] = $mobileDomItem->getAttribute('src');
+
+      if (strlen($variables['mobile']['src']) === 0) {
+        $variables['mobile']['src'] = $mobileDomItem->getAttribute('src');
+      }
+
+      if (isset($variables['elements']['#mobileSizes'])) {
+        $variables['mobile']['sizes'] = $variables['elements']['#mobileSizes'];
+      }
+      else {
+        $variables['mobile']['sizes'] = $mobileDomItem->getAttribute('sizes');
+      }
+
+      $variables['mobile']['width'] = $mobileDomItem->getAttribute('data-width');
+      $variables['mobile']['height'] = $mobileDomItem->getAttribute('data-height');
+      $variables['attributes']['class'][] = 'mobile-alt';
+    }
+
+    // Alt.
+    if (!$paragraph->field_alt->isEmpty()) {
+      $alt = $paragraph->field_alt->first()->getValue()['value'];
+      $variables['alt'] = $alt;
+    }
+  }
+
+  /**
+   * Parses an image for attributes.
+   */
+  protected function getImageAttributes($image) {
+    $b = $this->renderImage($image);
+
+    preg_match('/<img(.*)\/>/u', $b, $matches);
+    $dom = new \DOMDocument();
+    $dom->loadHTML($matches[0]);
+    foreach ($dom->getElementsByTagName('img') as $node) {
+      return $node;
+    }
+    return FALSE;
+  }
+
+  /**
+   * Renders and image.
+   */
+  protected function renderImage($image) {
+    $b = \Drupal::service('renderer')
+      ->render($image, FALSE);
+    return (string) $b;
   }
 
   /**
