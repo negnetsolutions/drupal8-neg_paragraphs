@@ -118,7 +118,7 @@ class ParagraphProcessor {
   }
 
   /**
-   * Preprocesses Pictures.
+   * Preprocesses Images.
    */
   public function processImage(&$variables) {
 
