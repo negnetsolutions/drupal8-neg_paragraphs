@@ -10,6 +10,20 @@ use Drupal\paragraphs\Entity\Paragraph;
 class ParagraphHelper {
 
   /**
+   * Checks to see if a row has a type of col.
+   */
+  public static function hasColOfType(&$cols, $type) {
+    foreach ($cols as $col) {
+      $p = Paragraph::load($col['target_id']);
+      if ($p->bundle() == $type) {
+        return TRUE;
+      }
+    }
+
+    return FALSE;
+  }
+
+  /**
    * Gets all of the rows on Type.
    */
   public static function fetchRowsOfType(array $types, $node) {
