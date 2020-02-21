@@ -33,10 +33,9 @@ class VideoEmbed {
   }
 
   /**
-   * Detects video type.
+   * Detects the handler.
    */
-  protected function detectType() {
-
+  protected function detectHandler() {
     $handler = 'Handler';
     if (strstr($this->url, 'vimeo.com') !== FALSE) {
       $handler = 'Vimeo';
@@ -45,6 +44,15 @@ class VideoEmbed {
       $handler = 'Youtube';
     }
 
+    return $handler;
+  }
+
+  /**
+   * Detects video type.
+   */
+  protected function detectType() {
+
+    $handler = $this->detectHandler();
     return "Drupal\\neg_paragraphs\\Videos\\$handler";
   }
 
@@ -59,6 +67,7 @@ class VideoEmbed {
    * Embeds a video.
    */
   public function embed() {
+    $this->variables['attributes']['class'][] = strtolower($this->detectHandler());
     $this->variables['video'] = $this->handler->insert();
     return TRUE;
   }
