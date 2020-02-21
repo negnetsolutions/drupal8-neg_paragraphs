@@ -240,7 +240,7 @@ class ParagraphProcessor {
       $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
     }
 
-    $imageDomItem = $this->getImageAttributes($image);
+    $imageDomItem = ParagraphHelper::getImageAttributes($image);
 
     $variables['image'] = [];
     $variables['attributes']['class'][] = $image['#responsive_image_style_id'];
@@ -279,7 +279,7 @@ class ParagraphProcessor {
         $mobile['#responsive_image_style_id'] = $variables['elements']['#mobile_responsive_image_style_id'];
       }
 
-      $mobileDomItem = $this->getImageAttributes($mobile);
+      $mobileDomItem = ParagraphHelper::getImageAttributes($mobile);
 
       $variables['attributes']['class'][] = 'mobile--' . $mobile['#responsive_image_style_id'];
       $variables['mobile']['srcset'] = $mobileDomItem->getAttribute('data-srcset');
@@ -306,30 +306,6 @@ class ParagraphProcessor {
       $alt = $paragraph->field_alt->first()->getValue()['value'];
       $variables['alt'] = $alt;
     }
-  }
-
-  /**
-   * Parses an image for attributes.
-   */
-  protected function getImageAttributes($image) {
-    $b = $this->renderImage($image);
-
-    preg_match('/<img(.*)\/>/u', $b, $matches);
-    $dom = new \DOMDocument();
-    $dom->loadHTML($matches[0]);
-    foreach ($dom->getElementsByTagName('img') as $node) {
-      return $node;
-    }
-    return FALSE;
-  }
-
-  /**
-   * Renders and image.
-   */
-  protected function renderImage($image) {
-    $b = \Drupal::service('renderer')
-      ->render($image, FALSE);
-    return (string) $b;
   }
 
   /**

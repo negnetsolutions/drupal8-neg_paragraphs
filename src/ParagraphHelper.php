@@ -114,4 +114,28 @@ class ParagraphHelper {
     return $text_content;
   }
 
+  /**
+   * Parses an image for attributes.
+   */
+  public static function getImageAttributes($image) {
+    $b = self::renderImage($image);
+
+    preg_match('/<img(.*)\/>/u', $b, $matches);
+    $dom = new \DOMDocument();
+    $dom->loadHTML($matches[0]);
+    foreach ($dom->getElementsByTagName('img') as $node) {
+      return $node;
+    }
+    return FALSE;
+  }
+
+  /**
+   * Renders and image.
+   */
+  protected static function renderImage($image) {
+    $b = \Drupal::service('renderer')
+      ->render($image, FALSE);
+    return (string) $b;
+  }
+
 }
