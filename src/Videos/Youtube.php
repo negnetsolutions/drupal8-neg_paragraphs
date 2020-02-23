@@ -58,7 +58,7 @@ class Youtube extends Handler {
   /**
    * Renders the youtube cover image.
    */
-  protected function renderCoverImage() {
+  public function renderCoverImage() {
     if (!$this->isImageDownloaded()) {
       if (!$this->downloadImage()) {
         return [];

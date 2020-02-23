@@ -64,6 +64,13 @@ class VideoEmbed {
   }
 
   /**
+   * Renders the cover image.
+   */
+  public function renderCoverImage() {
+    return $this->handler->renderCoverImage();
+  }
+
+  /**
    * Embeds a video.
    */
   public function embed() {

@@ -66,7 +66,7 @@ class Vimeo extends Handler {
   /**
    * RenderCoverImage base.
    */
-  protected function renderCoverImage() {
+  public function renderCoverImage() {
     // Let's fetch the vimeo poster image.
     $video = new VimeoVideo($this->url);
     return $video->renderCoverImage();
