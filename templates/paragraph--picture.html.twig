@@ -1,4 +1,4 @@
-{% if content.field_mobile_image.0|render %}
+{% if mobile|length > 0 %}
   <figure {{ attributes }}>
   {% if link %}
   <a href="{{link}}">
@@ -10,7 +10,7 @@
       <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-width="{{ mobile.width }}" data-height="{{ mobile.height }}" sizes="{{ mobile.sizes }}" {% if mobile.srcset|length > 0 %}data-src="{{ mobile.src }}" data-srcset="{{ mobile.srcset }}"{% else %}data-src="{{ mobile.src }}"{%endif %} class="{{image.class}}" alt="{{alt}} "/>
       {% else %}
       <source sizes="{{ image.sizes }}" {% if image.srcset|length > 0 %}srcset="{{ image.srcset }}"{% else %}src="{{ image.src }}"{% endif %} media="(min-width: 800px)" />
-      <img data-width="{{ mobile.width }}" data-height="{{ mobile.height }}" sizes="{{ mobile.sizes }}" {% if mobile.srcset|length > 0 %}src="{{ mobile.src }}" srcset="{{ mobile.srcset }}"{% else %}src="{{ mobile.src }}"{%endif %} class="{{image.class}}" alt="{{alt}} "/>
+      <img data-width="{{ mobile.width }}" data-height="{{ mobile.height }}" sizes="{{ mobile.sizes }}" {% if mobile.srcset|length > 0 %}src="{{ mobile.src }}" srcset="{{ mobile.srcset }}"{% else %}src="{{ mobile.src }}"{% endif %} class="{{image.class}}" alt="{{alt}} "/>
       {% endif %}
     </picture>
   </div>
@@ -35,7 +35,6 @@
     {% if link %}
     <a href="{{link}}">
     {% endif %}
-    {{ image }}
     <div class="rs-image-wrapper">
       {% if lazyload %}
       <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-width="{{ image.width }}" data-height="{{ image.height }}" sizes="{{ image.sizes }}" {% if image.srcset|length > 0 %}data-src="{{ image.src }}" data-srcset="{{ image.srcset }}"{% else %}src="{{ image.src }}"{% endif %} class="{{image.class}}" alt="{{alt}} "/>

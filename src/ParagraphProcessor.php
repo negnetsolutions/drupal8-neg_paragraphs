@@ -178,6 +178,9 @@ class ParagraphProcessor {
 
     $paragraph = $variables['elements']['#paragraph'];
 
+    $variables['image'] = [];
+    $variables['mobile'] = [];
+
     $variables['attributes']['class'][] = 'col';
     $variables['attributes']['class'][] = 'paragraph';
     $variables['attributes']['class'][] = 'paragraph-image';
