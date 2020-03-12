@@ -200,13 +200,13 @@ class ParagraphProcessor {
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_caption')) {
       $caption = $variables['elements']['#paragraph']->get('field_caption');
       if (!$caption->isEmpty()) {
-        $values = $caption->getValue();
         $variables['captions'] = [];
         $hasText = FALSE;
 
-        foreach ($values as $value) {
-          $markup = check_markup($value['value'], $value['format']);
-          $variables['captions'][] = $markup;
+        foreach ($caption->getIterator() as $caption) {
+          $value = $caption->getValue();
+          $markup = $value['value'];
+          $variables['captions'][] = $caption->view();
 
           if (strlen(trim(strip_tags($markup))) > 0) {
             $hasText = TRUE;
