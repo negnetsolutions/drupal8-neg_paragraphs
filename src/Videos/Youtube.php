@@ -116,7 +116,14 @@ class Youtube extends Handler {
    */
   protected function fetch($url, $cachepath) {
     $http   = \Drupal::httpClient();
-    $result = $http->request('get', $url);
+    try {
+      $result = $http->request('get', $url);
+    }
+    catch (\Exception $e) {
+      drupal_set_message('Could not fetch youtube thumbnail image at ' . $url, 'error');
+      return FALSE;
+    }
+
     $code   = floor($result->getStatusCode() / 100) * 100;
     if (!empty($result->getBody()) && $code != 400 && $code != 500) {
       return file_unmanaged_save_data($result->getBody(), $cachepath, FILE_EXISTS_REPLACE);
