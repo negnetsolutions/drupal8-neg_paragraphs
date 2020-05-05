@@ -2,6 +2,8 @@
 
 namespace Drupal\neg_paragraphs\Videos;
 
+use Drupal\negnet_utility\YoutubeVideo;
+
 /**
  * Youtube Video Handler.
  */
@@ -9,6 +11,7 @@ class Youtube extends Handler {
 
   protected $videoId;
   const IMAGE_DIRECTORY = 'youtube_images';
+  const APIKEY = 'AIzaSyBflqh14s-fo8vpcGmmTJqLKBBawc1Lrmg';
 
   /**
    * Gets the video link.
@@ -59,23 +62,14 @@ class Youtube extends Handler {
    * Renders the youtube cover image.
    */
   public function renderCoverImage() {
-    if (!$this->isImageDownloaded()) {
-      if (!$this->downloadImage()) {
-        return [];
-      }
+    try {
+      $video = new YoutubeVideo($this->url);
+      return $video->renderCoverImage();
     }
-
-    list($width, $height, $type, $attr) = getimagesize($this->getImageUri());
-
-    $image = [
-      '#theme' => 'responsive_image',
-      '#width' => $width,
-      '#height' => $height,
-      '#responsive_image_style_id' => 'rs_image',
-      '#uri' => $this->getImageUri(),
-    ];
-
-    return $image;
+    catch (\Exception $e) {
+      \Drupal::messenger()->addMessage($e->getMessage());
+      return [];
+    }
   }
 
   /**
