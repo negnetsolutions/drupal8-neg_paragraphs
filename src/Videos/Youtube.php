@@ -11,7 +11,6 @@ class Youtube extends Handler {
 
   protected $videoId;
   const IMAGE_DIRECTORY = 'youtube_images';
-  const APIKEY = 'AIzaSyBflqh14s-fo8vpcGmmTJqLKBBawc1Lrmg';
 
   /**
    * Gets the video link.
