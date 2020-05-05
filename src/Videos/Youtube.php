@@ -62,14 +62,31 @@ class Youtube extends Handler {
    * Renders the youtube cover image.
    */
   public function renderCoverImage() {
-    try {
-      $video = new YoutubeVideo($this->url);
-      return $video->renderCoverImage();
+
+    if (!$this->isImageDownloaded()) {
+      if (!$this->downloadImage()) {
+        try {
+          $video = new YoutubeVideo($this->url);
+          return $video->renderCoverImage();
+        }
+        catch (\Exception $e) {
+          \Drupal::messenger()->addMessage($e->getMessage());
+          return [];
+        }
+      }
     }
-    catch (\Exception $e) {
-      \Drupal::messenger()->addMessage($e->getMessage());
-      return [];
-    }
+
+    list($width, $height, $type, $attr) = getimagesize($this->getImageUri());
+
+    $image = [
+      '#theme' => 'responsive_image',
+      '#width' => $width,
+      '#height' => $height,
+      '#responsive_image_style_id' => 'rs_image',
+      '#uri' => $this->getImageUri(),
+    ];
+
+    return $image;
   }
 
   /**
