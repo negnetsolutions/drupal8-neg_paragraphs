@@ -19,7 +19,6 @@ dependencies:
   - memcache
   - metatag
   - metatag_open_graph
-  - neg_paragraphs
   - negnet_utility
   - node
   - options
