@@ -12,21 +12,35 @@ vimeo_player:
   version: 1.0
   js:
     js/vimeo_player.js: {}
+video_base_css:
+  version: 1.0
+  css:
+    theme:
+      css/video.css: {}
 vimeo_base:
   version: 1.0
   js:
     js/noframe.js: {}
-  css:
-    theme:
-      css/video.css: {}
   dependencies:
     - neg_paragraphs/vimeo_player
+    - neg_paragraphs/video_base_css
 vimeo:
   version: 1.0
   js:
     js/vimeo_videos.js: {}
   dependencies:
     - neg_paragraphs/vimeo_base
+cloudflare:
+  version: 1.0
+  js:
+    https://embed.videodelivery.net/embed/r4xu.fla9.latest.js?video=: {type: external, minified: false, defer: true}
+    js/cloudflare_player.js: {}
+cloudflare_player:
+  version: 1.0
+  js:
+    js/cloudflare_player.js: {}
+  dependencies:
+    - neg_paragraphs/video_base_css
 youtube:
   version: 1.0
   js:

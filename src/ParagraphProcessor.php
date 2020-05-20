@@ -102,8 +102,14 @@ class ParagraphProcessor {
   public function setupImage(&$image) {
 
     if ($image['#theme'] !== 'responsive_image_formatter') {
-      $url = $image['#url']->toString();
-      if (substr($url, -3) !== 'svg') {
+      if (isset($image['#url'])) {
+        $url = $image['#url']->toString();
+      }
+      else {
+        $url = FALSE;
+      }
+
+      if ($url === FALSE || substr($url, -3) !== 'svg') {
         $image['#responsive_image_style_id'] = 'rs_image';
         $image['#theme'] = 'responsive_image_formatter';
       }
@@ -360,6 +366,10 @@ class ParagraphProcessor {
 
     if (isset($variables['elements']['field_caption'])) {
       $variables['captions'] = FieldUtilities::elementChildren($variables['elements']['field_caption']);
+    }
+
+    if (isset($variables['image'])) {
+      $variables['attributes']['class'][] = 'has_poster';
     }
 
   }

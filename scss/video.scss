@@ -23,7 +23,26 @@
       }
     }
   }
-  iframe {
+  background: blue;
+
+  &.has_poster {
+    .vjs-poster {
+      display: none !important;
+    }
+  }
+  stream {
+    video {
+      position: absolute;
+      z-index: 1;
+      opacity: 0;
+    }
+    &.playing {
+      video {
+        opacity: 1;
+      }
+    }
+  }
+  iframe  {
     position: absolute;
     z-index: 1;
     opacity: 0;
