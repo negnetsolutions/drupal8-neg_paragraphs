@@ -102,8 +102,11 @@ class ParagraphProcessor {
   public function setupImage(&$image) {
 
     if ($image['#theme'] !== 'responsive_image_formatter') {
-      $image['#responsive_image_style_id'] = 'rs_image';
-      $image['#theme'] = 'responsive_image_formatter';
+      $url = $image['#url']->toString();
+      if (substr($url, -3) !== 'svg') {
+        $image['#responsive_image_style_id'] = 'rs_image';
+        $image['#theme'] = 'responsive_image_formatter';
+      }
     }
 
   }
