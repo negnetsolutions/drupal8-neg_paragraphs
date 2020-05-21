@@ -10,24 +10,6 @@ use Drupal\negnet_utility\FieldUtilities;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 
-function neg_paragraphs_library_info_alter(&$libraries, $extension) {
-  if ($extension === 'neg_paragraphs' && isset($libraries['cloudflare'])) {
-    $libraries['cloudflare']['js'] = [];
-    $libraries['cloudflare']['dependencies'] = [
-      'neg_paragraphs/cloudflare_player',
-    ];
-
-    foreach ($GLOBALS['cloudFlareVideoID'] as $id) {
-      $url = 'https://embed.videodelivery.net/embed/r4xu.fla9.latest.js?video=' . $id;
-      $libraries['cloudflare']['js'][$url] = [
-        'type' => 'external',
-        'minified' => FALSE,
-        'defer' => TRUE,
-      ];
-    }
-  }
-}
-
 /**
  * Presents image styles.
  */

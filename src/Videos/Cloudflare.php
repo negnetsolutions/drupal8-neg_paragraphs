@@ -59,6 +59,7 @@ class Cloudflare extends Handler {
     $id = $this->getVideoId();
     $code = <<<EOL
 <stream src="$id" $options></stream>
+<script data-cfasync="false" defer type="text/javascript" src="https://embed.videodelivery.net/embed/r4xu.fla9.latest.js?video=$id"></script>
 EOL;
 
     return $code;
@@ -79,7 +80,7 @@ EOL;
     }
     $GLOBALS['cloudFlareVideoID'][] = $id;
 
-    $this->variables['#attached']['library'][] = 'neg_paragraphs/cloudflare';
+    $this->variables['#attached']['library'][] = 'neg_paragraphs/cloudflare_player';
     $this->variables['embedCode'] = $this->getEmbedCode();
   }
 
