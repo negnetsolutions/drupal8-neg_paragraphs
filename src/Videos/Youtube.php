@@ -125,16 +125,16 @@ class Youtube extends Handler {
    * Fetches external link to cachepath.
    */
   protected function fetch($url, $cachepath) {
-    $http   = \Drupal::httpClient();
+    $http = \Drupal::httpClient();
     try {
       $result = $http->request('get', $url);
     }
     catch (\Exception $e) {
-      drupal_set_message('Could not fetch youtube thumbnail image at ' . $url, 'error');
+      \Drupal::messenger()->addError('Could not fetch youtube thumbnail image at ' . $url);
       return FALSE;
     }
 
-    $code   = floor($result->getStatusCode() / 100) * 100;
+    $code = floor($result->getStatusCode() / 100) * 100;
     if (!empty($result->getBody()) && $code != 400 && $code != 500) {
       return file_unmanaged_save_data($result->getBody(), $cachepath, FILE_EXISTS_REPLACE);
     }
