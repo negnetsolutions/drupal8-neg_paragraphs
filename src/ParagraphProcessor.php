@@ -17,7 +17,13 @@ class ParagraphProcessor {
   public function processParagraphRow(&$variables) {
 
     $variables['#attached']['library'][] = 'neg_paragraphs/reset';
-    $variables['#attached']['library'][] = 'negnet_utility/grid';
+
+    if (\Drupal::config('negnet_theme.settings')->get('grid') !== NULL) {
+      $variables['#attached']['library'][] = \Drupal::config('negnet_theme.settings')->get('grid');
+    }
+    else {
+      $variables['#attached']['library'][] = 'negnet_utility/grid';
+    }
 
     if (!isset($GLOBALS['paragraph_row_count'])) {
       $GLOBALS['paragraph_row_count'] = 0;
