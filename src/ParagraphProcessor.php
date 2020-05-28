@@ -18,8 +18,8 @@ class ParagraphProcessor {
 
     $variables['#attached']['library'][] = 'neg_paragraphs/reset';
 
-    if (\Drupal::config('negnet_theme.settings')->get('grid') !== NULL) {
-      $variables['#attached']['library'][] = \Drupal::config('negnet_theme.settings')->get('grid');
+    if (\Drupal::config('negnet_utility.grid')->get('grid') !== NULL) {
+      $variables['#attached']['library'][] = \Drupal::config('negnet_utility.grid')->get('grid');
     }
     else {
       $variables['#attached']['library'][] = 'negnet_utility/grid';
