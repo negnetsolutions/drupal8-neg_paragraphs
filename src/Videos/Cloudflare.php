@@ -49,10 +49,6 @@ class Cloudflare extends Handler {
       }
     }
 
-    if (!in_array('autoplay', $options)) {
-      $options[] = 'controls';
-    }
-
     $options = array_unique($options);
     $options = implode(' ', $options);
 

@@ -40,6 +40,12 @@
       playerel.classList.remove('playing');
     });
 
+    if (!player.hasAttribute("autoplay")) {
+      player.addEventListener("click", function(e) {
+        player.pause();
+      });
+    }
+
     if (poster !== null) {
       poster.addEventListener("click", function() {
         player.play();
