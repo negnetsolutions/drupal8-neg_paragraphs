@@ -179,6 +179,10 @@ class Youtube extends Handler {
       $this->videoId = substr($this->url, strrpos($this->url, '/') + 1);
       return $this->videoId;
     }
+    elseif (strstr($this->url, 'youtu.be') !== FALSE) {
+      $this->videoId = substr($this->url, strrpos($this->url, '/') + 1);
+      return $this->videoId;
+    }
     elseif (preg_match('/\\?v=([a-zA-Z-_0-9]+)/u', $this->url, $matches) !== FALSE) {
       $this->videoId = $matches[1];
       return $this->videoId;
