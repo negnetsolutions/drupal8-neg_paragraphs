@@ -43,6 +43,9 @@ class VideoEmbed {
     elseif (strstr($this->url, 'youtube.com') !== FALSE) {
       $handler = 'Youtube';
     }
+    elseif (strstr($this->url, 'youtu.be') !== FALSE) {
+      $handler = 'Youtube';
+    }
     elseif (strstr($this->url, 'watch.cloudflarestream.com') !== FALSE) {
       $handler = 'Cloudflare';
     }
