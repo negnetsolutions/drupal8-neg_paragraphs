@@ -1,8 +1,13 @@
 lightbox:
   version: 1.0
   js:
-    js/magnific-popup.js: {}
     js/popups.js: {}
+  dependencies:
+    - neg_paragraphs/magnific_popup
+magnific_popup:
+  version: 1.0
+  js:
+    js/magnific-popup.js: {}
   css:
     theme:
       css/magnific-popup.css: {}
