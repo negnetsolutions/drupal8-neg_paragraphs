@@ -54,7 +54,7 @@ class Handler {
   /**
    * RenderCoverImage base.
    */
-  protected function renderCoverImage() {
+  public function renderCoverImage() {
     return [];
   }
 
