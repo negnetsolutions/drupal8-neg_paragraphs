@@ -35,7 +35,7 @@ class VideoEmbed {
   /**
    * Detects the handler.
    */
-  protected function detectHandler() {
+  public function detectHandler() {
     $handler = 'Handler';
     if (strstr($this->url, 'vimeo.com') !== FALSE) {
       $handler = 'Vimeo';
