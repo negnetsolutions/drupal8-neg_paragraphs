@@ -252,6 +252,9 @@ class ParagraphProcessor {
     }
 
     $imageDomItem = ParagraphHelper::getImageAttributes($image);
+    if ($imageDomItem === FALSE) {
+      return;
+    }
 
     $variables['image'] = [];
     $variables['attributes']['class'][] = $image['#responsive_image_style_id'];
