@@ -13,7 +13,7 @@
     "drupal/menu_admin_per_menu": "^1.0",
     "drupal/field_group": "^3.0",
     "drupal/linkit": "^5.0",
-    "drupal/honeypot": "^1.29",
+    "drupal/honeypot": "^2.0",
     "drupal/memcache": "^2.0",
     "drupal/paragraphs": "1.11",
     "drupal/pathauto": "^1.2",
