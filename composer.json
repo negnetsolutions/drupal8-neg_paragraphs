@@ -15,7 +15,7 @@
     "drupal/linkit": "^5.0",
     "drupal/honeypot": "^2.0",
     "drupal/memcache": "^2.0",
-    "drupal/paragraphs": "1.11",
+    "drupal/paragraphs": "^1.11",
     "drupal/pathauto": "^1.2",
     "drupal/webform": "^5.0",
     "drupal/metatag": "^1.0",
