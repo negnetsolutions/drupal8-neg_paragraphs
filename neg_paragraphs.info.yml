@@ -2,6 +2,7 @@ name: 'Neg Paragraphs'
 type: module
 description: 'Paragraph Overrides for Negnet Solutions implementation of Paragraphs'
 core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - admin_toolbar
   - adminimal_admin_toolbar
