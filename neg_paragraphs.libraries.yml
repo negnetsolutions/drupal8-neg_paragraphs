@@ -38,6 +38,7 @@ vimeo:
 cloudflare_player:
   version: 1.0
   js:
+    https://embed.videodelivery.net/embed/sdk.latest.js: {type: external, minified: false}
     js/cloudflare_player.js: {}
   dependencies:
     - neg_paragraphs/video_base_css

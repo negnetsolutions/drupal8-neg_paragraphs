@@ -50,12 +50,39 @@ class Cloudflare extends Handler {
     }
 
     $options = array_unique($options);
+
+    $options[] = ['controls' => 'false'];
+
+    $getOptions = '';
+    if (count($options) > 0) {
+      $getOptions .= '?';
+      foreach ($options as $option) {
+        if (is_array($option)) {
+          $keys = array_keys($option);
+          $getOptions .= $keys[0] . '=' . $option[$keys[0]] . '&';
+        }
+        else {
+          $getOptions .= $option . '=true&';
+        }
+      }
+      $getOptions = substr_replace($getOptions ,'', -1);
+    }
+
     $options = implode(' ', $options);
 
     $id = $this->getVideoId();
     $code = <<<EOL
-<stream src="$id" $options></stream>
-<script data-cfasync="false" defer type="text/javascript" src="https://embed.videodelivery.net/embed/r4xu.fla9.latest.js?video=$id"></script>
+<stream src="$id">
+  <div style="position: relative; height: 0px; width: 100%; padding-top: 56.25%;">
+    <iframe
+      src="https://iframe.videodelivery.net/$id$getOptions"
+      style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; border: none;"
+      allow="autoplay; encrypted-media; picture-in-picture;"
+      allowfullscreen="true"
+      title="Video"
+    ></iframe>
+  </div>
+</stream>
 EOL;
 
     return $code;
