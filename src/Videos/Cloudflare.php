@@ -72,7 +72,7 @@ class Cloudflare extends Handler {
 
     $id = $this->getVideoId();
     $code = <<<EOL
-<stream src="$id" $options>
+<stream src="$id">
   <div style="position: relative; height: 0px; width: 100%; padding-top: 56.25%;">
     <iframe
       src="https://iframe.videodelivery.net/$id$getOptions"
