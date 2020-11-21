@@ -184,6 +184,10 @@ class ParagraphProcessor {
    */
   public function processPicture(&$variables) {
 
+    if (!isset($GLOBALS['rs_image_count'])) {
+      $GLOBALS['rs_image_count'] = 0;
+    }
+
     $paragraph = $variables['elements']['#paragraph'];
 
     $variables['image'] = [];
@@ -239,6 +243,11 @@ class ParagraphProcessor {
     $variables['lazyload'] = TRUE;
     if (isset($variables['elements']['#lazyload'])) {
       $variables['lazyload'] = $variables['elements']['#lazyload'];
+    }
+
+    // Force auto sizing.
+    if ($variables['lazyload'] === TRUE) {
+      $variables['elements']['#sizes'] = 'auto';
     }
 
     $image = $variables['content']['field_image'][0];
@@ -320,6 +329,8 @@ class ParagraphProcessor {
       $alt = $paragraph->field_alt->first()->getValue()['value'];
       $variables['alt'] = $alt;
     }
+
+    $GLOBALS['rs_image_count']++;
   }
 
   /**
