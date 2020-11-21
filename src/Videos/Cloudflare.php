@@ -51,7 +51,18 @@ class Cloudflare extends Handler {
 
     $options = array_unique($options);
 
-    $options[] = ['controls' => 'false'];
+    $id = $this->getVideoId();
+
+    $cloudflareOptions = [
+      [
+        'controls' => 'false',
+      ],
+      [
+        'preload' => 'auto',
+      ],
+    ];
+
+    $options = array_merge($options, $cloudflareOptions);
 
     $getOptions = '';
     if (count($options) > 0) {
@@ -59,7 +70,7 @@ class Cloudflare extends Handler {
       foreach ($options as $option) {
         if (is_array($option)) {
           $keys = array_keys($option);
-          $getOptions .= $keys[0] . '=' . $option[$keys[0]] . '&';
+          $getOptions .= $keys[0] . '=' . urlencode($option[$keys[0]]) . '&';
         }
         else {
           $getOptions .= $option . '=true&';
@@ -68,9 +79,6 @@ class Cloudflare extends Handler {
       $getOptions = substr_replace($getOptions ,'', -1);
     }
 
-    $options = implode(' ', $options);
-
-    $id = $this->getVideoId();
     $code = <<<EOL
 <stream src="$id">
   <div style="position: relative; height: 0px; width: 100%; padding-top: 56.25%;">
