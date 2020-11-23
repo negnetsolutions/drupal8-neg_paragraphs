@@ -245,6 +245,10 @@ class ParagraphProcessor {
       $variables['lazyload'] = $variables['elements']['#lazyload'];
     }
 
+    if ($GLOBALS['rs_image_count'] < 1) {
+      $variables['lazyload'] = FALSE;
+    }
+
     // Force auto sizing.
     if ($variables['lazyload'] === TRUE) {
       $variables['elements']['#sizes'] = 'auto';
@@ -285,7 +289,50 @@ class ParagraphProcessor {
       $variables['image']['sizes'] = $imageDomItem->getAttribute('sizes');
     }
 
+    if ($variables['lazyload'] === TRUE) {
+      if ($variables['image']['sizes'] == '100vw') {
+        $variables['image']['sizes'] = 'auto';
+      }
+    }
+    else {
+      if ($variables['image']['sizes'] == 'auto') {
+
+        $variables['image']['sizes'] = '100vw';
+
+        $row = $paragraph->getParentEntity();
+        if ($row->hasField('field_columns')) {
+          $columns = $row->get('field_columns');
+          switch ($columns->count()) {
+            case 2:
+              $variables['image']['sizes'] = '50vw';
+              break;
+
+            case 3:
+              $variables['image']['sizes'] = '33vw';
+              break;
+
+            case 4:
+              $variables['image']['sizes'] = '25vw';
+              break;
+
+            case 5:
+              $variables['image']['sizes'] = '20vw';
+              break;
+
+            case 6:
+              $variables['image']['sizes'] = '17vw';
+              break;
+          }
+        }
+      }
+    }
+
     $variables['image']['class'] = $imageDomItem->getAttribute('class');
+
+    if ($variables['lazyload'] === FALSE) {
+      $variables['image']['class'] = preg_replace('/lazyload\\s/um', ' ', $variables['image']['class']);
+    }
+
     $variables['alt'] = $imageDomItem->getAttribute('alt');
     $variables['image']['width'] = $imageDomItem->getAttribute('data-width');
     $variables['image']['height'] = $imageDomItem->getAttribute('data-height');
