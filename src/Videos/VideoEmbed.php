@@ -82,6 +82,15 @@ class VideoEmbed {
   public function embed() {
     $this->variables['attributes']['class'][] = strtolower($this->detectHandler());
     $this->variables['video'] = $this->handler->insert();
+
+    foreach ($this->options as $option) {
+      switch ($option) {
+        case 'background':
+          $this->variables['attributes']['class'][] = 'background_video';
+          break;
+      }
+    }
+
     return TRUE;
   }
 
