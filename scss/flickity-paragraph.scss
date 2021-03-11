@@ -1,0 +1,11 @@
+.paragraph-row.layout_slider {
+  & > .grid {
+    display: block;
+
+    & .col {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+}

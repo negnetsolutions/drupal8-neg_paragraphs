@@ -69,3 +69,12 @@ tinyslideParagraph:
     js/tinyslide-paragraph.js: {}
   dependencies:
     - neg_paragraphs/tinyslide
+flickityParagraph:
+  version: 1.0
+  css:
+    theme:
+      css/flickity-paragraph.css: {}
+  js:
+    js/flickity-paragraph.js: {}
+  dependencies:
+    - negnet_utility/flickity
