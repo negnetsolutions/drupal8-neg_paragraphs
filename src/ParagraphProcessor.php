@@ -245,7 +245,7 @@ class ParagraphProcessor {
       $variables['lazyload'] = $variables['elements']['#lazyload'];
     }
 
-    if ($GLOBALS['rs_image_count'] < 1) {
+    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 1) {
       $variables['lazyload'] = FALSE;
     }
 
