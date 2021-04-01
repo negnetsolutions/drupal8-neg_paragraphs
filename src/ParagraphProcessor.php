@@ -138,7 +138,11 @@ class ParagraphProcessor {
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_link')) {
       $uri = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_link)[0]['uri'];
-      $variables['link'] = Url::fromUri($uri)->toString();
+      try {
+        $variables['link'] = Url::fromUri($uri)->toString();
+      }
+      catch (\Exception $e) {
+      }
     }
 
     if (isset($variables['elements']['#paragraph']->field_image)) {
@@ -206,7 +210,11 @@ class ParagraphProcessor {
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_link')) {
       $uri = FieldUtilities::fieldChildren($variables['elements']['#paragraph']->field_link)[0]['uri'];
-      $variables['link'] = Url::fromUri($uri)->toString();
+      try {
+        $variables['link'] = Url::fromUri($uri)->toString();
+      }
+      catch (\Exception $e) {
+      }
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_caption')) {
