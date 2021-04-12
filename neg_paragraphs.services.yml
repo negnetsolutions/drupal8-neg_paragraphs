@@ -1,0 +1,5 @@
+services:
+  neg_paragraphs.twig.TwigExtension:
+    class: Drupal\neg_paragraphs\TwigExtension\NegParagraphsColumnCount
+    tags:
+      - { name: twig.extension }
