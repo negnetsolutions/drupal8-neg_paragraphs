@@ -346,8 +346,9 @@ class ParagraphProcessor {
     }
 
     $variables['alt'] = $imageDomItem->getAttribute('alt');
-    $variables['image']['width'] = $imageDomItem->getAttribute('data-width');
-    $variables['image']['height'] = $imageDomItem->getAttribute('data-height');
+
+    $variables['image']['width'] = ($imageDomItem->hasAttribute('width')) ? $imageDomItem->getAttribute('width') : $imageDomItem->getAttribute('data-width');
+    $variables['image']['height'] = ($imageDomItem->hasAttribute('height')) ? $imageDomItem->getAttribute('height') : $imageDomItem->getAttribute('data-height');
 
     // Mobile Image Setup.
     if (!$paragraph->field_mobile_image->isEmpty() && isset($variables['content']['field_mobile_image'])) {
@@ -378,8 +379,9 @@ class ParagraphProcessor {
         $variables['mobile']['sizes'] = $mobileDomItem->getAttribute('sizes');
       }
 
-      $variables['mobile']['width'] = $mobileDomItem->getAttribute('data-width');
-      $variables['mobile']['height'] = $mobileDomItem->getAttribute('data-height');
+      $variables['mobile']['width'] = ($mobileDomItem->hasAttribute('width')) ? $mobileDomItem->getAttribute('width') : $mobileDomItem->getAttribute('data-width');
+      $variables['mobile']['height'] = ($mobileDomItem->hasAttribute('height')) ? $mobileDomItem->getAttribute('height') : $mobileDomItem->getAttribute('data-height');
+
       $variables['attributes']['class'][] = 'mobile-alt';
     }
 
