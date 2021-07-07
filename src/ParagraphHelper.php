@@ -120,9 +120,8 @@ class ParagraphHelper {
   public static function getImageAttributes($image) {
     $b = self::renderImage($image);
 
-    preg_match('/<img(.*)\/>/u', $b, $matches);
     $dom = new \DOMDocument();
-    $dom->loadHTML($matches[0]);
+    $dom->loadHTML($b);
     foreach ($dom->getElementsByTagName('img') as $node) {
       return $node;
     }

@@ -276,6 +276,11 @@ class ParagraphProcessor {
       $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
     }
 
+    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 1) {
+      // Don't allow lazyloading of first image.
+      $variables['lazyload'] = FALSE;
+    }
+
     $imageDomItem = ParagraphHelper::getImageAttributes($image);
     if ($imageDomItem === FALSE) {
       return;
@@ -283,12 +288,9 @@ class ParagraphProcessor {
 
     $variables['image'] = [];
     $variables['attributes']['class'][] = $image['#responsive_image_style_id'];
-    $variables['image']['srcset'] = $imageDomItem->getAttribute('data-srcset');
-    $variables['image']['src'] = $imageDomItem->getAttribute('data-src');
 
-    if (strlen($variables['image']['src']) === 0) {
-      $variables['image']['src'] = $imageDomItem->getAttribute('src');
-    }
+    $variables['image']['srcset'] = ($imageDomItem->hasAttribute('data-srcset')) ? $imageDomItem->getAttribute('data-srcset') : $imageDomItem->getAttribute('srcset');
+    $variables['image']['src'] = ($imageDomItem->hasAttribute('data-src')) ? $imageDomItem->getAttribute('data-src') : $imageDomItem->getAttribute('src');
 
     if (strlen($variables['image']['srcset']) === 0) {
       unset($variables['image']['srcset']);
@@ -365,11 +367,12 @@ class ParagraphProcessor {
       $mobileDomItem = ParagraphHelper::getImageAttributes($mobile);
 
       $variables['attributes']['class'][] = 'mobile--' . $mobile['#responsive_image_style_id'];
-      $variables['mobile']['srcset'] = $mobileDomItem->getAttribute('data-srcset');
-      $variables['mobile']['src'] = $mobileDomItem->getAttribute('src');
 
-      if (strlen($variables['mobile']['src']) === 0) {
-        $variables['mobile']['src'] = $mobileDomItem->getAttribute('src');
+      $variables['mobile']['srcset'] = ($mobileDomItem->hasAttribute('data-srcset')) ? $mobileDomItem->getAttribute('data-srcset') : $mobileDomItem->getAttribute('srcset');
+      $variables['mobile']['src'] = ($mobileDomItem->hasAttribute('data-src')) ? $mobileDomItem->getAttribute('data-src') : $mobileDomItem->getAttribute('src');
+
+      if (strlen($variables['mobile']['srcset']) === 0) {
+        unset($variables['mobile']['srcset']);
       }
 
       if (isset($variables['elements']['#mobileSizes'])) {
@@ -381,6 +384,12 @@ class ParagraphProcessor {
 
       $variables['mobile']['width'] = ($mobileDomItem->hasAttribute('width')) ? $mobileDomItem->getAttribute('width') : $mobileDomItem->getAttribute('data-width');
       $variables['mobile']['height'] = ($mobileDomItem->hasAttribute('height')) ? $mobileDomItem->getAttribute('height') : $mobileDomItem->getAttribute('data-height');
+
+      if ($variables['lazyload'] === FALSE) {
+        if ($variables['mobile']['sizes'] === 'auto') {
+          $variables['mobile']['sizes'] = '100vw';
+        }
+      }
 
       $variables['attributes']['class'][] = 'mobile-alt';
     }
