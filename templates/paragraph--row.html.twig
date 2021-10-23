@@ -1,12 +1,15 @@
 {% set col_count = 0 %}
+{% set renderedColumns = [] %}
 {% for col in columns %}
-  {% if col|render %}
+  {% set rendered = col|render %}
+  {% if rendered %}
   {% set col_count = col_count + 1 %}
+  {% set renderedColumns = renderedColumns|merge([rendered]) %}
   {% endif %}
 {% endfor %}
 <div class='paragraph-row {{ margins | join(' ') }}{% if attributes.parent_class %} {{ attributes.parent_class }}{% endif %}{% if row_layout %} {{ row_layout }}{% endif %}'>
-  <div {{ attributes|without('parent_class').removeClass(columns|length|numberToName).addClass(col_count|numberToName) }}>
-    {% for col in columns %}
+  <div {{ attributes|without('parent_class').removeClass(renderedColumns|length|numberToName).addClass(col_count|numberToName) }}>
+    {% for col in renderedColumns %}
       {{ col }}
     {% endfor %}
   </div>
