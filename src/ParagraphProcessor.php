@@ -443,8 +443,12 @@ class ParagraphProcessor {
 
       $urlObject = FieldUtilities::elementChildren($variables['elements']['field_video_url']);
       $url = $urlObject[0]['#url']->toString();
-      $video = new VideoEmbed($url, $options, $variables);
-      $video->embed();
+      try {
+        $video = new VideoEmbed($url, $options, $variables);
+        $video->embed();
+      }
+      catch (\Exception $e) {
+      }
     }
 
     if (isset($variables['elements']['field_caption'])) {
