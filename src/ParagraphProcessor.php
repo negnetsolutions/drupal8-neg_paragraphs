@@ -257,7 +257,7 @@ class ParagraphProcessor {
       $GLOBALS['paragraph_row_count'] = 1;
     }
 
-    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 1) {
+    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 4) {
       $variables['lazyload'] = FALSE;
     }
 
@@ -276,7 +276,7 @@ class ParagraphProcessor {
       $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
     }
 
-    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 1) {
+    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 4) {
       // Don't allow lazyloading of first image.
       $variables['lazyload'] = FALSE;
     }
@@ -302,6 +302,17 @@ class ParagraphProcessor {
     else {
       $variables['image']['sizes'] = $imageDomItem->getAttribute('sizes');
     }
+
+    $mainImagePreload = [
+      '#type' => 'html_tag',
+      '#tag' => 'link',
+      '#value' => '',
+      '#attributes' => [
+        'rel' => 'preload',
+        'href' => $variables['image']['src'],
+        'imagesrcset' => $variables['image']['srcset'],
+      ],
+    ];
 
     if ($variables['lazyload'] === TRUE) {
       if ($variables['image']['sizes'] == '100vw') {
@@ -371,6 +382,22 @@ class ParagraphProcessor {
       $variables['mobile']['srcset'] = ($mobileDomItem->hasAttribute('data-srcset')) ? $mobileDomItem->getAttribute('data-srcset') : $mobileDomItem->getAttribute('srcset');
       $variables['mobile']['src'] = ($mobileDomItem->hasAttribute('data-src')) ? $mobileDomItem->getAttribute('data-src') : $mobileDomItem->getAttribute('src');
 
+      $mainImagePreload['#attributes']['media'] = '(min-width: 800px)';
+      $variables['#attached']['html_head'][] = [
+        [
+          '#type' => 'html_tag',
+          '#tag' => 'link',
+          '#value' => '',
+          '#attributes' => [
+            'rel' => 'preload',
+            'href' => $variables['mobile']['src'],
+            'imagesrcset' => $variables['mobile']['srcset'],
+            'media' => '(max-width: 800px)',
+          ],
+        ],
+        'preload_mobile_image_' . $GLOBALS['rs_image_count'],
+      ];
+
       if (strlen($variables['mobile']['srcset']) === 0) {
         unset($variables['mobile']['srcset']);
       }
@@ -392,6 +419,13 @@ class ParagraphProcessor {
       }
 
       $variables['attributes']['class'][] = 'mobile-alt';
+    }
+
+    if ($variables['lazyload'] === FALSE) {
+      $variables['#attached']['html_head'][] = [
+        $mainImagePreload,
+        'preload_image_' . $GLOBALS['rs_image_count'],
+      ];
     }
 
     // Alt.
