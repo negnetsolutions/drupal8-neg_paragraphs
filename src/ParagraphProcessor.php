@@ -311,6 +311,7 @@ class ParagraphProcessor {
         'rel' => 'preload',
         'href' => $variables['image']['src'],
         'imagesrcset' => $variables['image']['srcset'],
+        'as' => 'image',
       ],
     ];
 
@@ -393,6 +394,7 @@ class ParagraphProcessor {
             'href' => $variables['mobile']['src'],
             'imagesrcset' => $variables['mobile']['srcset'],
             'media' => '(max-width: 800px)',
+            'as' => 'image',
           ],
         ],
         'preload_mobile_image_' . $GLOBALS['rs_image_count'],
