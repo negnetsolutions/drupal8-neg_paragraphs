@@ -133,7 +133,7 @@ class ParagraphHelper {
    */
   protected static function renderImage($image) {
     $b = \Drupal::service('renderer')
-      ->render($image, FALSE);
+      ->renderRoot($image, FALSE);
     return (string) $b;
   }
 
