@@ -257,7 +257,7 @@ class ParagraphProcessor {
       $GLOBALS['paragraph_row_count'] = 1;
     }
 
-    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 1) {
+    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 3) {
       $variables['lazyload'] = FALSE;
     }
 
@@ -276,7 +276,7 @@ class ParagraphProcessor {
       $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
     }
 
-    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 1) {
+    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 3) {
       // Don't allow lazyloading of first image.
       $variables['lazyload'] = FALSE;
     }
@@ -310,6 +310,7 @@ class ParagraphProcessor {
       '#attributes' => [
         'rel' => 'preload',
         'href' => $variables['image']['src'],
+        'imagesizes' => $variables['image']['sizes'],
         'imagesrcset' => $variables['image']['srcset'],
         'as' => 'image',
       ],
@@ -392,6 +393,7 @@ class ParagraphProcessor {
           '#attributes' => [
             'rel' => 'preload',
             'href' => $variables['mobile']['src'],
+            'imagesizes' => $variables['mobile']['sizes'],
             'imagesrcset' => $variables['mobile']['srcset'],
             'media' => '(max-width: 800px)',
             'as' => 'image',
