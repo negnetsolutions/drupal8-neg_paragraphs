@@ -257,7 +257,7 @@ class ParagraphProcessor {
       $GLOBALS['paragraph_row_count'] = 1;
     }
 
-    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 3) {
+    if ($GLOBALS['paragraph_row_count'] === 1 || $GLOBALS['rs_image_count'] < 1) {
       $variables['lazyload'] = FALSE;
     }
 
@@ -276,7 +276,7 @@ class ParagraphProcessor {
       $image['#responsive_image_style_id'] = $variables['elements']['#responsive_image_style_id'];
     }
 
-    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 3) {
+    if (!isset($GLOBALS['rs_image_count']) || $GLOBALS['rs_image_count'] < 1) {
       // Don't allow lazyloading of first image.
       $variables['lazyload'] = FALSE;
     }
