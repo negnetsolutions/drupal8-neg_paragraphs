@@ -3,6 +3,7 @@
 namespace Drupal\neg_paragraphs;
 
 use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\Core\Render\RenderContext;
 
 /**
  * Helper function for neg_paragraphs.
@@ -132,8 +133,14 @@ class ParagraphHelper {
    * Renders and image.
    */
   protected static function renderImage($image) {
-    $b = \Drupal::service('renderer')
-      ->renderRoot($image, FALSE);
+    $b = NULL;
+
+    $context = new RenderContext();
+    \Drupal::service('renderer')->executeInRenderContext($context, function () use (&$b, &$image) {
+      $b = \Drupal::service('renderer')
+        ->render($image, FALSE);
+    });
+
     return (string) $b;
   }
 
