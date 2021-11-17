@@ -264,6 +264,7 @@ class ParagraphProcessor {
     // Force auto sizing.
     if ($variables['lazyload'] === TRUE) {
       $variables['elements']['#sizes'] = 'auto';
+      $variables['#attached']['library'][] = 'negnet_utility/negnet-responsive-images';
     }
 
     $image = $variables['content']['field_image'][0];
