@@ -38,6 +38,10 @@ class ParagraphProcessor {
       $variables['col_count'] = count($variables['columns']);
       $variables['grid_type'] = FieldUtilities::numberToName($variables['col_count']);
       $variables['attributes']['class'][] = $variables['grid_type'];
+
+      foreach ($variables['columns'] as &$column) {
+        $column['#view_mode'] = $variables['view_mode'];
+      }
     }
 
     if (FieldUtilities::fieldHasChildren($variables['elements']['#paragraph'], 'field_margins')) {
