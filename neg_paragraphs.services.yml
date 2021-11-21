@@ -1,4 +1,9 @@
 services:
+  cache_context.paragraph_view_mode:
+    class: Drupal\neg_paragraphs\ParagraphCacheContext
+    arguments: ['@request_stack']
+    tags:
+      - { name: cache.context }
   neg_paragraphs.twig.TwigExtension:
     class: Drupal\neg_paragraphs\TwigExtension\NegParagraphsColumnCount
     tags:
