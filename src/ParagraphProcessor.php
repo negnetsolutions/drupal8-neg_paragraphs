@@ -406,6 +406,10 @@ class ParagraphProcessor {
         ],
         'preload_mobile_image_' . $GLOBALS['rs_image_count'],
       ];
+      // $variables['#attached']['http_header'][] = [
+      //   'Link',
+      //   '<' . $variables['mobile']['src'] . '>; rel="preload"; imagesrcset="' . $variables['mobile']['srcset'] . '"; imagesizes="' . $variables['mobile']['sizes'] . '"; as="image"; media="(max-width: 800px)";',
+      // ];
 
       if (strlen($variables['mobile']['srcset']) === 0) {
         unset($variables['mobile']['srcset']);
@@ -431,6 +435,11 @@ class ParagraphProcessor {
     }
 
     if ($variables['lazyload'] === FALSE) {
+      // $variables['#attached']['http_header'][] = [
+      //   'Link',
+      //   '<' . $mainImagePreload['#attributes']['href'] . '>; rel="preload"; imagesrcset="' . $mainImagePreload['#attributes']['imagesrcset'] . '"; imagesizes="' . $mainImagePreload['#attributes']['imagesizes'] . '"; as="image";' . ((isset($mainImagePreload['#attributes']['media'])) ? ' media="' . $mainImagePreload['#attributes']['media'] . '"' : ''),
+      // ];
+
       $variables['#attached']['html_head'][] = [
         $mainImagePreload,
         'preload_image_' . $GLOBALS['rs_image_count'],
