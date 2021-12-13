@@ -157,6 +157,9 @@ function neg_paragraphs_tokens($type, $tokens, array $data, array $options, Bubb
           $text_content = implode(' ', $text);
           $replacements[$original] = $text_content;
         }
+        else {
+          $replacements[$original] = 'View ' . $node->label();
+        }
       }
     }
   }
