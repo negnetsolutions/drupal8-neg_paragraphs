@@ -312,6 +312,7 @@ class ParagraphProcessor {
       '#type' => 'html_tag',
       '#tag' => 'link',
       '#value' => '',
+      '#weight' => $GLOBALS['rs_image_count'],
       '#attributes' => [
         'rel' => 'preload',
         'href' => $variables['image']['src'],
@@ -404,7 +405,7 @@ class ParagraphProcessor {
             'as' => 'image',
           ],
         ],
-        'preload_mobile_image_' . $GLOBALS['rs_image_count'],
+        $GLOBALS['rs_image_count'] . '_preload_mobile_image',
       ];
       // $variables['#attached']['http_header'][] = [
       //   'Link',
@@ -442,7 +443,7 @@ class ParagraphProcessor {
 
       $variables['#attached']['html_head'][] = [
         $mainImagePreload,
-        'preload_image_' . $GLOBALS['rs_image_count'],
+        $GLOBALS['rs_image_count'] . '_preload_image',
       ];
     }
 
