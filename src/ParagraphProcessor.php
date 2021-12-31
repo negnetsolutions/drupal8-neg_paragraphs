@@ -407,10 +407,6 @@ class ParagraphProcessor {
         ],
         $GLOBALS['rs_image_count'] . '_preload_mobile_image',
       ];
-      // $variables['#attached']['http_header'][] = [
-      //   'Link',
-      //   '<' . $variables['mobile']['src'] . '>; rel="preload"; imagesrcset="' . $variables['mobile']['srcset'] . '"; imagesizes="' . $variables['mobile']['sizes'] . '"; as="image"; media="(max-width: 800px)";',
-      // ];
 
       if (strlen($variables['mobile']['srcset']) === 0) {
         unset($variables['mobile']['srcset']);
