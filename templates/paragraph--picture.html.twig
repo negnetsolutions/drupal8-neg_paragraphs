@@ -39,7 +39,7 @@
       {% if lazyload %}
       <img decoding="async" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width="{{ image.width }}" height="{{ image.height }}" sizes="{{ image.sizes }}" {% if image.srcset|length > 0 %}data-src="{{ image.src }}" data-srcset="{{ image.srcset }}"{% else %}src="{{ image.src }}"{% endif %} class="{{image.class}}" alt="{{alt}} "/>
       {% else %}
-      <img loading="lazy" decoding="async" width="{{ image.width }}" height="{{ image.height }}" data-width="{{ image.width }}" data-height="{{ image.height }}" sizes="{{ image.sizes }}" {% if image.srcset|length > 0 %}src="{{ image.src }}" srcset="{{ image.srcset }}"{% else %}src="{{ image.src }}"{% endif %} class="{{image.class}}" alt="{{alt}} "/>
+      <img loading="lazy" decoding="async" width="{{ image.width }}" height="{{ image.height }}" sizes="{{ image.sizes }}" {% if image.srcset|length > 0 %}src="{{ image.src }}" srcset="{{ image.srcset }}"{% else %}src="{{ image.src }}"{% endif %} class="{{image.class}}" alt="{{alt}} "/>
       {% endif %}
     </div>
     {% if captions|length > 0 %}
