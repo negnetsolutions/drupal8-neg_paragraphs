@@ -389,6 +389,7 @@ class ParagraphProcessor {
 
       $variables['mobile']['srcset'] = ($mobileDomItem->hasAttribute('data-srcset')) ? $mobileDomItem->getAttribute('data-srcset') : $mobileDomItem->getAttribute('srcset');
       $variables['mobile']['src'] = ($mobileDomItem->hasAttribute('data-src')) ? $mobileDomItem->getAttribute('data-src') : $mobileDomItem->getAttribute('src');
+      $variables['mobile']['sizes'] = ($mobileDomItem->hasAttribute('sizes')) ? $mobileDomItem->getAttribute('sizes') : '100vw';
 
       $mainImagePreload['#attributes']['media'] = '(min-width: 800px)';
       $variables['#attached']['html_head'][] = [
