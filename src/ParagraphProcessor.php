@@ -164,10 +164,15 @@ class ParagraphProcessor {
         $hasText = FALSE;
 
         foreach ($values as $value) {
-          $markup = check_markup($value['value'], $value['format']);
+          $markup = [
+            '#type' => 'processed_text',
+            '#text' => $value['value'],
+            '#format' => $value['format'],
+          ];
           $variables['captions'][] = $markup;
 
-          if (strlen(trim(strip_tags($markup))) > 0) {
+          $markupCheck = check_markup($value['value'], $value['format']);
+          if (strlen(trim(strip_tags($markupCheck))) > 0) {
             $hasText = TRUE;
           }
         }
