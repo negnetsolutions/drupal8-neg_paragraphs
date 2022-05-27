@@ -136,6 +136,11 @@ EOL;
       return $this->videoId;
     }
 
+    if (strstr($this->url, 'watch.videodelivery.net') !== FALSE) {
+      $this->videoId = substr($this->url, strrpos($this->url, '/') + 1);
+      return $this->videoId;
+    }
+
     $this->videoId = FALSE;
     return $this->videoId;
   }

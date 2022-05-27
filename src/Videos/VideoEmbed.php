@@ -37,6 +37,7 @@ class VideoEmbed {
    */
   public function detectHandler() {
     $handler = 'Handler';
+
     if (strstr($this->url, 'vimeo.com') !== FALSE) {
       $handler = 'Vimeo';
     }
@@ -47,6 +48,9 @@ class VideoEmbed {
       $handler = 'Youtube';
     }
     elseif (strstr($this->url, 'watch.cloudflarestream.com') !== FALSE) {
+      $handler = 'Cloudflare';
+    }
+    elseif (strstr($this->url, 'watch.videodelivery.net') !== FALSE) {
       $handler = 'Cloudflare';
     }
 
