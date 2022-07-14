@@ -376,17 +376,17 @@ class ParagraphProcessor {
     $variables['image']['width'] = ($imageDomItem->hasAttribute('width')) ? $imageDomItem->getAttribute('width') : $imageDomItem->getAttribute('data-width');
     $variables['image']['height'] = ($imageDomItem->hasAttribute('height')) ? $imageDomItem->getAttribute('height') : $imageDomItem->getAttribute('data-height');
 
+    $mobile = (!$paragraph->field_mobile_image->isEmpty() && isset($variables['content']['field_mobile_image'])) ? $variables['content']['field_mobile_image'][0] : $variables['content']['field_image'][0];
+
+    $mobile_rs_style = (strlen($paragraph->field_mobile_image_style->value) > 0) ? $paragraph->field_mobile_image_style->value : NULL;
+
+    // Check for special mobile modes.
+    $mobile_rs_style = (!$paragraph->field_mobile_image->isEmpty() && $mobile_rs_style === NULL && isset($variables['elements']['#mobile_responsive_image_style_id'])) ? $variables['elements']['#mobile_responsive_image_style_id'] : $mobile_rs_style;
+
     // Mobile Image Setup.
-    if (!$paragraph->field_mobile_image->isEmpty() && isset($variables['content']['field_mobile_image'])) {
-      $mobile = $variables['content']['field_mobile_image'][0];
+    if ($mobile && strlen($mobile_rs_style) > 0) {
 
-      if (!$paragraph->field_mobile_image_style->isEmpty()) {
-        $mobile['#responsive_image_style_id'] = $paragraph->field_mobile_image_style->first()->getValue()['value'];
-      }
-
-      if (isset($variables['elements']['#mobile_responsive_image_style_id'])) {
-        $mobile['#responsive_image_style_id'] = $variables['elements']['#mobile_responsive_image_style_id'];
-      }
+      $mobile['#responsive_image_style_id'] = $mobile_rs_style;
 
       $mobileDomItem = ParagraphHelper::getImageAttributes($mobile);
 
