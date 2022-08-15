@@ -19,6 +19,7 @@
     "drupal/pathauto": "^1.2",
     "drupal/webform": "^6.0",
     "drupal/metatag": "^1.0",
+    "drupal/ctools": ":^3.11",
     "wikimedia/composer-merge-plugin": "dev-master",
     "drupal/simple_sitemap": "^3.1"
   }
