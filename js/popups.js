@@ -1,5 +1,11 @@
 (function($) {
   $(document).ready(function() {
+    $("a.image-lightbox").magnificPopup({
+      type: "image",
+      removalDelay: 160,
+      preloader: false,
+      fixedContentPos: false,
+    });
     $("a.lightbox").magnificPopup({
       type: "iframe",
       mainClass: "mfp-fade",
