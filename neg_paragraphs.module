@@ -11,6 +11,22 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 
 /**
+ * Preprocesses responsive images.
+ */
+function neg_paragraphs_preprocess_responsive_image(&$variables) {
+  if (isset($variables['height']) && isset($variables['width'])) {
+    if ($variables['height'] > $variables['width']) {
+      $variables['attributes']['class'][] = 'portrait';
+      $variables['img_element']['#attributes']['class'][] = 'portrait';
+    }
+    else {
+      $variables['attributes']['class'][] = 'landscape';
+      $variables['img_element']['#attributes']['class'][] = 'landscape';
+    }
+  }
+}
+
+/**
  * Presents image styles.
  */
 function neg_paragraphs_image_styles(FieldStorageConfig $definition, ContentEntityInterface $entity = NULL, $cacheable) {
