@@ -4,6 +4,7 @@
   "type": "drupal-module",
   "license": "GPL-3.0+",
   "require": {
+    "negnet/neg_utilities": "master",
     "negnet/neg_purger": "master",
     "drupal/admin_toolbar": "^3.0",
     "drupal/adminimal_admin_toolbar": "^1.8",
