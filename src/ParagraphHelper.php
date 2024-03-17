@@ -2,8 +2,8 @@
 
 namespace Drupal\neg_paragraphs;
 
-use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\Core\Render\RenderContext;
+use Drupal\paragraphs\Entity\Paragraph;
 
 /**
  * Helper function for neg_paragraphs.
@@ -120,6 +120,10 @@ class ParagraphHelper {
    */
   public static function getImageAttributes($image) {
     $b = self::renderImage($image);
+
+    if (strlen($b) === 0) {
+      return FALSE;
+    }
 
     $dom = new \DOMDocument();
     $dom->loadHTML($b);
